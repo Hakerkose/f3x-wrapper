@@ -1,3 +1,12 @@
+local initDebounce = false
+_G.F3X__init_func = function()
+   if initDebounce then return end
+   initDebounce = true
+   game.Players:Chat('/e :f3x')
+   game:GetService('Players').LocalPlayer.Backpack:WaitForChild('Folder', 1)
+   initDebounce = false
+end
+
 local F3X = loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/main.lua",true))()
 
 function F3X:LoadBuild(buildName: string): {Instance}

@@ -9,11 +9,13 @@ local errors: {[string]: string} = {
     notIntialized = "Not Initialized",
 }
 
+local initFunc = _G.F3X__init_func or function()
+    game.Players:Chat(':f3x')
+end
+
 function F3X.new(init: () -> ())
     if type(init) == "function" then
-        init = function()
-            game.Players:Chat(':f3x')
-        end
+        init = initFunc
     end
 
     local self
