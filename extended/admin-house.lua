@@ -8,6 +8,19 @@ end
 
 local F3X = loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/main.lua",true))()
 
+function F3X:GetBuilds(): {string}
+   local tbl = game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'GET'})
+   local builds = {}
+   for k, _ in pairs(tbl) do
+      table.insert(builds, k)
+   end
+   return builds
+end
+
+function F3X:HasBuild(buildName: string): boolean
+   return game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'GET'})[buildName] ~= nil
+end
+
 function F3X:LoadBuild(buildName: string): {Instance}
    local result = game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'LOAD', buildName})
    assert(result, 'Build not found.')
