@@ -6,6 +6,7 @@ local plr = game:GetService("Players").LocalPlayer
 
 local errors: {[string]: string} = {
     endpointNotFound = "Cannot find F3X endpoint.",
+    coreNotFound = "Cannot find F3X core.",
     notIntialized = "Not Initialized",
 }
 
@@ -23,11 +24,15 @@ function F3X.new(init: () -> ())
         _reinit = function()
             init()
             local Folder = plr.Backpack:WaitForChild('Folder', 1)
+            local Core = Folder and Folder:WaitForChild('Core', 1)
             local SyncAPI = Folder and Folder:WaitForChild('SyncAPI', 1)
             local ServerEndpoint: RemoteEvent = SyncAPI and SyncAPI:WaitForChild('ServerEndpoint', 1)
+            assert(Core, errors.coreNotFound)
             assert(ServerEndpoint, errors.endpointNotFound)
+            self._core = Core
             self._endpoint = ServerEndpoint
         end,
+        _core = nil,
         _endpoint = nil,
     })
     self._reinit()
@@ -297,6 +302,12 @@ function F3X:SetLocked(Items: table, Locked: table | boolean): nil
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
     return self._endpoint:InvokeServer("SetLocked", Items, Locked)
+end
+
+function F3X:GetSelectedParts(): {Instance}
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return require(self._core).Selection.Parts
 end
 
 return F3X
