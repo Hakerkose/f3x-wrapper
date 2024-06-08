@@ -56,7 +56,7 @@ end
 --- Clones multiple parts and sets their parent.
 -- @tparam table Items Parts to clone
 -- @tparam Instance Parent Parent instance
--- @treturn {Instance} Cloned parts
+-- @treturn {Instance,...} Cloned parts
 function F3X:CloneParts(Items, Parent)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
