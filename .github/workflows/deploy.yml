@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  sile:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
