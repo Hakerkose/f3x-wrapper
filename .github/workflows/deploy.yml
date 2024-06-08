@@ -22,10 +22,10 @@ jobs:
       run: |
         pip install mkdocs
 
-    - name: Install Lua and LuaRocks
+    - name: Install Lua, LuaRocks, and Lua Development Headers
       run: |
         sudo apt-get update
-        sudo apt-get install -y lua5.3 luarocks
+        sudo apt-get install -y lua5.3 luarocks lua5.3-dev
 
     - name: Install LDoc
       run: |
