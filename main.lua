@@ -18,10 +18,7 @@ end
 -- @param init function Initialization function
 -- @return table New F3X instance
 function F3X.new(init)
-    if type(init) == "function" then
-        init = initFunc
-    end
-
+    init = init or initFunc
     local self
     self = setmetatable({
         _reinit = function()
