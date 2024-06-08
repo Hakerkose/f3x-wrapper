@@ -1,4 +1,4 @@
-name: Deploy Documentation
+name: LDoc
 
 on:
   push:
@@ -8,35 +8,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Set up Lua
-        uses: leafo/gh-actions-lua@v8
+      - name: Generate docs with LDoc
+        uses: lunarmodules/ldoc@v1.5.0
         with:
-          luaVersion: '5.3'
-
-      - name: Install LuaRocks
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y luarocks
-
-      - name: Install LDoc
-        run: |
-          luarocks install --local ldoc
-
-      - name: Add LuaRocks binaries to PATH
-       run: echo "::add-path::/home/runner/.luarocks/bin/"
-
-      - name: Generate documentation
-        run: |
-          ldoc main.lua
-        id: generate_docs
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+            args: main.lua
