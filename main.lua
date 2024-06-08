@@ -34,7 +34,7 @@ function F3X.new(init)
         end,
         _core = nil,
         _endpoint = nil,
-    })
+    }, F3X)
     self._reinit()
 
     return self
