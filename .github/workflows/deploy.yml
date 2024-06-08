@@ -1,65 +1,17 @@
-name: Deploy Documentation
+name: LDoc
 
 on:
   push:
     branches:
-      - main  # Change this to your default branch
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.10'
-
-    - name: Install MkDocs
-      run: |
-        pip install mkdocs
-
-    - name: Install Lua, LuaRocks, and Lua Development Headers
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y lua5.3 luarocks lua5.3-dev
-
-    - name: Install LDoc
-      run: |
-        luarocks install --local ldoc
-        echo 'export PATH=$HOME/.luarocks/bin:$PATH' >> $GITHUB_ENV
-
-    - name: Generate LDoc Documentation
-      run: |
-        mkdir -p site/docs
-        ~/.luarocks/bin/ldoc -d site/docs src
-
-    - name: Create MkDocs Documentation Directory and Index
-      run: |
-        mkdir -p docs
-        echo "# My Project Documentation" > docs/index.md
-
-    - name: Create MkDocs configuration
-      run: |
-        echo "site_name: My Project Documentation" > mkdocs.yml
-        echo "nav:" >> mkdocs.yml
-        echo "  - Home: index.md" >> mkdocs.yml
-        echo "  - Documentation:" >> mkdocs.yml
-        echo "      - Reference: docs/index.html" >> mkdocs.yml
-        echo "theme:" >> mkdocs.yml
-        echo "  name: readthedocs" >> mkdocs.yml
-        echo "plugins:" >> mkdocs.yml
-        echo "  - search" >> mkdocs.yml
-
-    - name: Build MkDocs Site
-      run: |
-        mkdocs build
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./site
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate docs with LDoc
+        uses: lunarmodules/ldoc@v0
+        with:
+            args: main.lua
