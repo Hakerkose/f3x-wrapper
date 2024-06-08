@@ -9,7 +9,7 @@ end
 local F3X = loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/main.lua", true))()
 
 --- Gets the list of builds.
--- @return table List of build names
+-- @treturn List table of build names
 function F3X:GetBuilds()
    local tbl = game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'GET'})
    local builds = {}
@@ -20,15 +20,15 @@ function F3X:GetBuilds()
 end
 
 --- Checks if a build exists.
--- @param buildName string Name of the build
--- @return boolean True if the build exists, false otherwise
+-- @tparam string buildName Name of the build
+-- @treturn True boolean if the build exists, false otherwise
 function F3X:HasBuild(buildName)
    return game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'GET'})[buildName] ~= nil
 end
 
 --- Loads a build.
--- @param buildName string Name of the build
--- @return table List of instances in the build
+-- @tparam string buildName Name of the build
+-- @treturn List table of instances in the build
 function F3X:LoadBuild(buildName)
    local result = game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'LOAD', buildName})
    assert(result, 'Build not found.')
@@ -36,7 +36,7 @@ function F3X:LoadBuild(buildName)
 end
 
 --- Sets the lock mode.
--- @param mode number Lock mode
+-- @tparam number mode Lock mode
 function F3X:SetLockMode(mode)
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"CHANGELOCKMODE", mode})
 end
@@ -62,19 +62,19 @@ function F3X:SetLockModeToOnlyMe()
 end
 
 --- Gets the list of whitelisted players.
--- @return table List of whitelisted players
+-- @treturn List table of whitelisted players
 function F3X:GetWhitelistedPlayers()
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"GETWHITELIST"})
 end
 
 --- Adds a player to the whitelist.
--- @param userId number User ID of the player
+-- @tparam number userId User ID of the player
 function F3X:AddToWhitelist(userId)
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"ADDWHITELIST", userId})
 end
 
 --- Removes a player from the whitelist.
--- @param userId number User ID of the player
+-- @tparam number userId User ID of the player
 function F3X:RemoveFromWhitelist(userId)
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"REMOVEWHITELIST", userId})
 end
