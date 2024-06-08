@@ -16,7 +16,7 @@ jobs:
       - name: Set up Lua
         uses: leafo/gh-actions-lua@v8
         with:
-          luaVersion: '5.3'  # Specify the Lua version you need
+          luaVersion: '5.3'
 
       - name: Install LuaRocks
         run: |
@@ -25,7 +25,7 @@ jobs:
 
       - name: Install LDoc
         run: |
-          luarocks install ldoc
+          luarocks install --local ldoc
 
       - name: Generate documentation
         run: |
@@ -36,4 +36,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs  # Specify the directory where LDoc generates the documentation
+          publish_dir: ./docs
