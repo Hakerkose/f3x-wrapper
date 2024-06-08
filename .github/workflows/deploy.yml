@@ -3,7 +3,7 @@ name: Deploy Documentation
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build:
@@ -18,9 +18,9 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install MkDocs and Plugins
+    - name: Install MkDocs
       run: |
-        pip install mkdocs mkdocs-ldoc
+        pip install mkdocs
 
     - name: Install LuaRocks and LDoc
       run: |
@@ -28,9 +28,23 @@ jobs:
         sudo apt-get install -y luarocks
         luarocks install ldoc
 
-    - name: Generate Documentation
+    - name: Generate LDoc Documentation
       run: |
-        ldoc src
+        mkdir -p site/docs
+        ldoc -d site/docs src
+
+    - name: Create MkDocs configuration
+      run: |
+        echo "site_name: My Project Documentation" > mkdocs.yml
+        echo "nav:" >> mkdocs.yml
+        echo "  - Home: index.md" >> mkdocs.yml
+        echo "  - Documentation:" >> mkdocs.yml
+        echo "      - Reference: docs/index.html" >> mkdocs.yml
+        echo "theme:" >> mkdocs.yml
+        echo "  name: readthedocs" >> mkdocs.yml
+
+    - name: Build MkDocs Site
+      run: |
         mkdocs build
 
     - name: Deploy to GitHub Pages
