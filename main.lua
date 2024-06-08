@@ -292,7 +292,7 @@ end
 --   @field[opt] Color3 Color The color of the light.
 --   @field[opt] boolean Shadows Whether the light should cast shadows.
 --   @field[opt] Enum.NormalId Face The face of the part to which the light is applied.
---   @tparam[opt] number Angle The angle of the light.
+--   @field[opt] number Angle The angle of the light.
 -- @treturn nil
 function F3X:SetLights(Changes)
     assert(self._reinit, errors.notIntialized)
