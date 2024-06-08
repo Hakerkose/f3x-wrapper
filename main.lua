@@ -284,7 +284,15 @@ function F3X:CreateLight(Part, LightType)
 end
 
 --- Sets the properties of the specified lights.
--- @tparam {{Part: Instance, LightType: "SpotLight"|"PointLight"|"SurfaceLight", Range: number?, Brightness: number?, Color: Color3?, Shadows: boolean?, Face: Enum.NormalId?, Angle: number?}, ...} Changes Lights and their new properties
+-- @tparam table Changes A table containing information about the lights to be set.
+--   @tparam Instance Part The part to which the light belongs.
+--   @tparam "SpotLight"|"PointLight"|"SurfaceLight" LightType The type of light to be set.
+--   @tparam[opt] number Range The range of the light.
+--   @tparam[opt] number Brightness The brightness of the light.
+--   @tparam[opt] Color3 Color The color of the light.
+--   @tparam[opt] boolean Shadows Whether the light should cast shadows.
+--   @tparam[opt] Enum.NormalId Face The face of the part to which the light is applied.
+--   @tparam[opt] number Angle The angle of the light.
 -- @treturn nil
 function F3X:SetLights(Changes)
     assert(self._reinit, errors.notIntialized)
