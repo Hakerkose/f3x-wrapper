@@ -37,6 +37,11 @@ jobs:
         mkdir -p site/docs
         ~/.luarocks/bin/ldoc -d site/docs src
 
+    - name: Create MkDocs Documentation Directory and Index
+      run: |
+        mkdir -p docs
+        echo "# My Project Documentation" > docs/index.md
+
     - name: Create MkDocs configuration
       run: |
         echo "site_name: My Project Documentation" > mkdocs.yml
@@ -46,6 +51,8 @@ jobs:
         echo "      - Reference: docs/index.html" >> mkdocs.yml
         echo "theme:" >> mkdocs.yml
         echo "  name: readthedocs" >> mkdocs.yml
+        echo "plugins:" >> mkdocs.yml
+        echo "  - search" >> mkdocs.yml
 
     - name: Build MkDocs Site
       run: |
