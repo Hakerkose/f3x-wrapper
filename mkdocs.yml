@@ -1,0 +1,9 @@
+site_name: Unofficial F3X Wrapper Documentation
+theme:
+  name: readthedocs
+plugins:
+  - search
+  - mkdocs-ldoc
+ldoc:
+  source: src
+  output: docs

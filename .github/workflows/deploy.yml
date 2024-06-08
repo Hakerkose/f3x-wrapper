@@ -1,0 +1,40 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install MkDocs and Plugins
+      run: |
+        pip install mkdocs mkdocs-ldoc
+
+    - name: Install LuaRocks and LDoc
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y luarocks
+        luarocks install ldoc
+
+    - name: Generate Documentation
+      run: |
+        ldoc src
+        mkdocs build
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
