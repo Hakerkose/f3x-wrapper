@@ -168,4 +168,271 @@ function F3X:Move(Part, CFrame)
     return self:MoveParts({{["Part"] = Part, ["CFrame"] = CFrame}})
 end
 
---- Moves a part
+--- Moves a part to the specified position.
+-- @param Part BasePart Part to move
+-- @param Position Vector3 New position
+function F3X:MoveTo(Part, Position)
+    return self:MoveParts({{["Part"] = Part, ["CFrame"] = CFrame.new(Position)}})
+end
+
+--- Resizes the specified parts.
+-- @param Changes table Parts and their new sizes and CFrames
+function F3X:ResizeParts(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("Resize", Changes)
+end
+
+--- Resizes a single part.
+-- @param Part BasePart Part to resize
+-- @param Size Vector3 New size
+-- @param cf CFrame? Optional new CFrame
+function F3X:Resize(Part, Size, cf)
+    return self:ResizeParts({{["Part"] = Part, ["Size"] = Size, ["CFrame"] = cf}})
+end
+
+--- Rotates the specified parts.
+-- @param Changes table Parts and their new CFrames
+function F3X:RotateParts(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("Rotate", Changes)
+end
+
+--- Rotates a single part.
+-- @param Part BasePart Part to rotate
+-- @param CFrame CFrame New CFrame
+function F3X:Rotate(Part, CFrame)
+    return self:RotateParts({{["Part"] = Part, ["CFrame"] = CFrame}})
+end
+
+--- Sets the color of the specified parts.
+-- @param Changes table Parts and their new colors
+function F3X:SetColors(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetColor", Changes)
+end
+
+--- Sets the color of a single part.
+-- @param Part BasePart Part to color
+-- @param Color Color3 New color
+function F3X:SetColor(Part, Color)
+    return self:SetColors({{["Part"] = Part, ["Color"] = Color}})
+end
+
+--- Sets the surfaces of the specified parts.
+-- @param Changes table Parts and their new surfaces
+function F3X:SetPartsSurfaces(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetSurface", Changes)
+end
+
+--- Sets the surfaces of a single part.
+-- @param Part BasePart Part to set surfaces
+-- @param Surfaces table New surfaces
+function F3X:SetSurfaces(Part, Surfaces)
+    return self:SetPartsSurfaces({{["Part"] = Part, ["Surfaces"] = Surfaces}})
+end
+
+--- Sets the surface of a single face of a part.
+-- @param Part BasePart Part to set surface
+-- @param Face string Face to set
+-- @param SurfaceType Enum.SurfaceType New surface type
+function F3X:SetSurface(Part, Face, SurfaceType)
+    return self:SetSurfaces(Part, {[Face] = SurfaceType})
+end
+
+--- Creates lights on the specified parts.
+-- @param Changes table Parts and their light types
+-- @return table Created lights
+function F3X:CreateLights(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("CreateLight", Changes)
+end
+
+--- Creates a single light on a part.
+-- @param Part Instance Part to create light on
+-- @param LightType string Type of light
+-- @return Instance Created light
+function F3X:CreateLight(Part, LightType)
+    return self:CreateLights({{["Part"] = Part, ["LightType"] = LightType}})[1]
+end
+
+--- Sets the properties of the specified lights.
+-- @param Changes table Lights and their new properties
+function F3X:SetLights(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetLight", Changes)
+end
+
+--- Creates decorations on the specified parts.
+-- @param Changes table Parts and their decoration types
+-- @return table Created decorations
+function F3X:CreateDecorations(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("CreateDecoration", Changes)
+end
+
+--- Sets the properties of the specified decorations.
+-- @param Changes table Decorations and their new properties
+function F3X:SetDecorations(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetDecoration", Changes)
+end
+
+--- Creates meshes on the specified parts.
+-- @param Changes table Parts to create meshes on
+-- @return table Created meshes
+function F3X:CreateMeshes(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("CreateMesh", Changes)
+end
+
+--- Sets the properties of the specified meshes.
+-- @param Changes table Meshes and their new properties
+function F3X:SetMeshes(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetMesh", Changes)
+end
+
+--- Creates textures on the specified parts.
+-- @param Changes table Parts and their texture types
+-- @return table Created textures
+function F3X:CreateTextures(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("CreateTexture", Changes)
+end
+
+--- Sets the properties of the specified textures.
+-- @param Changes table Textures and their new properties
+function F3X:SetTextures(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetTexture", Changes)
+end
+
+--- Sets the anchored state of the specified parts.
+-- @param Changes table Parts and their anchored states
+function F3X:SetAnchors(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetAnchor", Changes)
+end
+
+--- Anchors a single part.
+-- @param Part BasePart Part to anchor
+function F3X:Anchor(Part)
+    return self:SetAnchors({{["Part"] = Part, ["Anchored"] = true}})
+end
+
+--- Unanchors a single part.
+-- @param Part BasePart Part to unanchor
+function F3X:Unanchor(Part)
+    return self:SetAnchors({{["Part"] = Part, ["Anchored"] = false}})
+end
+
+--- Sets the collision state of the specified parts.
+-- @param Changes table Parts and their collision states
+function F3X:SetCollision(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetCollision", Changes)
+end
+
+--- Sets the material properties of the specified parts.
+-- @param Changes table Parts and their new material properties
+function F3X:SetMaterial(Changes)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("SetMaterial", Changes)
+end
+
+--- Creates welds between the specified parts and the target part.
+-- @param Parts table Parts to weld
+-- @param TargetPart BasePart Target part
+-- @return table Created welds
+function F3X:CreateWelds(Parts, TargetPart)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("CreateWeld", Parts, TargetPart)
+end
+
+--- Removes the specified welds.
+-- @param Welds table Welds to remove
+-- @return number Number of removed welds
+function F3X:RemoveWelds(Welds)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("RemoveWeld", Welds)
+end
+
+--- Undoes the removal of the specified welds.
+-- @param Welds table Welds to restore
+function F3X:UndoRemovedWelds(Welds)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("UndoRemoveWeld", Welds)
+end
+
+--- Exports the specified parts.
+-- @param Parts table Parts to export
+-- @return string|nil Exported data
+function F3X:Export(Parts)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("Export", Parts)
+end
+
+--- Checks if the HTTP service is enabled.
+-- @return boolean True if enabled, false otherwise
+function F3X:IsHttpServiceEnabled()
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("IsHttpServiceEnabled")
+end
+
+--- Extracts a mesh from the specified asset ID.
+-- @param AssetId number Asset ID
+-- @return any Extracted mesh
+function F3X:ExtractMeshFromAsset(AssetId)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("ExtractMeshFromAsset", AssetId)
+end
+
+--- Extracts an image from the specified decal asset ID.
+-- @param DecalAssetId number Decal asset ID
+-- @return string Extracted image
+function F3X:ExtractImageFromDecal(DecalAssetId)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return self._endpoint:InvokeServer("ExtractImageFromDecal", DecalAssetId)
+end
+
+--- Enables or disables mouse lock.
+-- @param Enabled boolean True to enable, false to disable
+function F3X:SetMouseLockEnabled(Enabled)
+    assert(self._reinit, errors.notIntialized)
+    if self.endpoint.Parent == nil then self._reinit() end
+    return self.endpoint:InvokeServer("SetMouseLockEnabled", Enabled)
+end
+
+--- Sets the locked state of the specified items.
+-- @param Items table Items to lock or unlock
+-- @param Locked table|boolean Locked state
+function F3X:SetLocked(Items, Locked)
+    assert(self.reinit, errors.notIntialized)
+    if self.endpoint.Parent == nil then self._reinit() end
+    return self.endpoint:InvokeServer("SetLocked", Items, Locked)
+end
+
+return F3X
