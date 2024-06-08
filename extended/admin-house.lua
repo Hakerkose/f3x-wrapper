@@ -42,21 +42,25 @@ function F3X:SetLockMode(mode)
 end
 
 --- Sets the lock mode to everyone.
+-- @treturn nil
 function F3X:SetLockModeToEveryone()
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"CHANGELOCKMODE", 0})
 end
 
 --- Sets the lock mode to friends.
+-- @treturn nil
 function F3X:SetLockModeToFriends()
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"CHANGELOCKMODE", 1})
 end
 
 --- Sets the lock mode to custom.
+-- @treturn nil
 function F3X:SetLockModeToCustom()
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"CHANGELOCKMODE", 2})
 end
 
 --- Sets the lock mode to only me.
+-- @treturn nil
 function F3X:SetLockModeToOnlyMe()
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"CHANGELOCKMODE", 3})
 end
@@ -69,12 +73,14 @@ end
 
 --- Adds a player to the whitelist.
 -- @tparam number userId User ID of the player
+-- @treturn nil
 function F3X:AddToWhitelist(userId)
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"ADDWHITELIST", userId})
 end
 
 --- Removes a player from the whitelist.
 -- @tparam number userId User ID of the player
+-- @treturn nil
 function F3X:RemoveFromWhitelist(userId)
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"REMOVEWHITELIST", userId})
 end

@@ -47,6 +47,7 @@ end
 
 --- Recolors the handle of a part.
 -- @tparam BrickColor NewColor New color for the handle
+-- @treturn nil
 function F3X:RecolorHandle(NewColor)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -72,7 +73,7 @@ function F3X:Clone(Item, Parent)
 end
 
 --- Creates a new part of the specified type at the given position.
--- @tparam string PartType Type of the part
+-- @tparam 'Normal'|'Truss'|'Wedge'|'Corner'|'Cylinder'|'Ball'|'Seat'|'Vehicle Seat'|'Spawn' PartType Type of the part
 -- @tparam CFrame Position Position of the part
 -- @tparam Instance Parent Parent instance
 -- @treturn BasePart Created part
@@ -85,7 +86,7 @@ end
 --- Creates a group (Model or Folder) containing the specified items.
 -- @tparam string Type Type of the group
 -- @tparam Instance Parent Parent instance
--- @tparam table Items Items to group
+-- @tparam {Instance,...} Items Items to group
 -- @treturn Model|Folder Created group
 function F3X:CreateGroup(Type, Parent, Items)
     assert(self._reinit, errors.notIntialized)
@@ -94,8 +95,8 @@ function F3X:CreateGroup(Type, Parent, Items)
 end
 
 --- Ungroups the specified groups.
--- @tparam table Groups Groups to ungroup
--- @treturn table Ungrouped items
+-- @tparam {Instance,...} Groups Groups to ungroup
+-- @treturn {Instance,...} Ungrouped items
 function F3X:Ungroup(Groups)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -103,8 +104,9 @@ function F3X:Ungroup(Groups)
 end
 
 --- Sets the parent of the specified items.
--- @tparam table Items Items to reparent
+-- @tparam {Instance,...} Items Items to reparent
 -- @tparam Instance Parent New parent instance
+-- @treturn nil
 function F3X:SetParent(Items, Parent)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -112,8 +114,9 @@ function F3X:SetParent(Items, Parent)
 end
 
 --- Sets the name of the specified items.
--- @tparam table Items Items to rename
+-- @tparam {Instance,...} Items Items to rename
 -- @tparam string Name New name
+-- @treturn nil
 function F3X:SetNames(Items, Name)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -123,12 +126,14 @@ end
 --- Sets the name of a single item.
 -- @tparam Instance Item Item to rename
 -- @tparam string Name New name
+-- @treturn nil
 function F3X:SetName(Item, Name)
     return self:SetNames({Item}, Name)
 end
 
 --- Removes the specified parts.
--- @tparam table Objects Parts to remove
+-- @tparam {Instance,...} Objects Parts to remove
+-- @treturn nil
 function F3X:RemoveParts(Objects)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -137,12 +142,14 @@ end
 
 --- Removes a single part.
 -- @tparam Instance Object Part to remove
+-- @treturn nil
 function F3X:Remove(Object)
     return self:RemoveParts({Object})
 end
 
 --- Undoes the removal of the specified parts.
--- @tparam table Objects Parts to restore
+-- @tparam {Instance,...} Objects Parts to restore
+-- @treturn nil
 function F3X:UndoRemovedParts(Objects)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -151,12 +158,14 @@ end
 
 --- Undoes the removal of a single part.
 -- @tparam Instance Object Part to restore
+-- @treturn nil
 function F3X:UndoRemove(Object)
     return self:UndoRemovedParts({Object})
 end
 
 --- Moves the specified parts to the given CFrame.
--- @tparam table Changes Parts and their new CFrames
+-- @tparam {{Part:BasePart,CFrame:CFrame},...} Changes Parts and their new CFrames
+-- @treturn nil
 function F3X:MoveParts(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -166,6 +175,7 @@ end
 --- Moves a single part to the given CFrame.
 -- @tparam BasePart Part Part to move
 -- @tparam CFrame CFrame New CFrame
+-- @treturn nil
 function F3X:Move(Part, CFrame)
     return self:MoveParts({{["Part"] = Part, ["CFrame"] = CFrame}})
 end
@@ -173,12 +183,14 @@ end
 --- Moves a part to the specified position.
 -- @tparam BasePart Part Part to move
 -- @tparam Vector3 Position New position
+-- @treturn nil
 function F3X:MoveTo(Part, Position)
     return self:MoveParts({{["Part"] = Part, ["CFrame"] = CFrame.new(Position)}})
 end
 
 --- Resizes the specified parts.
--- @tparam table Changes Parts and their new sizes and CFrames
+-- @tparam {{Part:BasePart,CFrame:CFrame,Size:Vector3},...} Changes Parts and their new sizes and CFrames
+-- @treturn nil
 function F3X:ResizeParts(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -188,13 +200,15 @@ end
 --- Resizes a single part.
 -- @tparam BasePart Part Part to resize
 -- @tparam Vector3 Size New size
--- @tparam CFrame cf? Optional new CFrame
+-- @tparam[opt=Part.CFrame] cf new CFrame
+-- @treturn nil
 function F3X:Resize(Part, Size, cf)
     return self:ResizeParts({{["Part"] = Part, ["Size"] = Size, ["CFrame"] = cf}})
 end
 
 --- Rotates the specified parts.
--- @tparam table Changes Parts and their new CFrames
+-- @tparam {{Part:BasePart,CFrame:CFrame},...} Changes Parts and their new CFrames
+-- @treturn nil
 function F3X:RotateParts(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -204,12 +218,14 @@ end
 --- Rotates a single part.
 -- @tparam BasePart Part Part to rotate
 -- @tparam CFrame CFrame New CFrame
+-- @treturn nil
 function F3X:Rotate(Part, CFrame)
     return self:RotateParts({{["Part"] = Part, ["CFrame"] = CFrame}})
 end
 
 --- Sets the color of the specified parts.
--- @tparam table Changes Parts and their new colors
+-- @tparam {{Part:BasePart,Color:Color3},...} Changes Parts and their new colors
+-- @treturn nil
 function F3X:SetColors(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -219,12 +235,14 @@ end
 --- Sets the color of a single part.
 -- @tparam BasePart Part Part to color
 -- @tparam Color3 Color New color
+-- @treturn nil
 function F3X:SetColor(Part, Color)
     return self:SetColors({{["Part"] = Part, ["Color"] = Color}})
 end
 
 --- Sets the surfaces of the specified parts.
--- @tparam table Changes Parts and their new surfaces
+-- @tparam {{Part:BasePart,Surfaces:{["Top"|"Front"|"Bottom"|"Right"|"Left"|"Back"]:Enum.SurfaceType}},...} Changes Parts and their new surfaces
+-- @treturn nil
 function F3X:SetPartsSurfaces(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -233,22 +251,24 @@ end
 
 --- Sets the surfaces of a single part.
 -- @tparam BasePart Part Part to set surfaces
--- @tparam table Surfaces New surfaces
+-- @tparam {["Top"|"Front"|"Bottom"|"Right"|"Left"|"Back"]:Enum.SurfaceType} Surfaces New surfaces
+-- @treturn nil
 function F3X:SetSurfaces(Part, Surfaces)
     return self:SetPartsSurfaces({{["Part"] = Part, ["Surfaces"] = Surfaces}})
 end
 
 --- Sets the surface of a single face of a part.
 -- @tparam BasePart Part Part to set surface
--- @tparam string Face Face to set
--- @tparam Enum SurfaceType.SurfaceType New surface type
+-- @tparam "Top"|"Front"|"Bottom"|"Right"|"Left"|"Back" Face Face to set
+-- @tparam Enum.SurfaceType SurfaceType New surface type
+-- @treturn nil
 function F3X:SetSurface(Part, Face, SurfaceType)
     return self:SetSurfaces(Part, {[Face] = SurfaceType})
 end
 
 --- Creates lights on the specified parts.
--- @tparam table Changes Parts and their light types
--- @treturn table Created lights
+-- @tparam {{Part:BasePart,LightType:"SpotLight"|"PointLight"|"SurfaceLight"},...} Changes Parts and their light types
+-- @treturn {SpotLight|PointLight|SurfaceLight,...} Created lights
 function F3X:CreateLights(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -257,14 +277,15 @@ end
 
 --- Creates a single light on a part.
 -- @tparam Instance Part Part to create light on
--- @tparam string LightType Type of light
+-- @tparam "SpotLight"|"PointLight"|"SurfaceLight" LightType Type of light
 -- @treturn Instance Created light
 function F3X:CreateLight(Part, LightType)
     return self:CreateLights({{["Part"] = Part, ["LightType"] = LightType}})[1]
 end
 
 --- Sets the properties of the specified lights.
--- @tparam table Changes Lights and their new properties
+-- @tparam {{Part:Instance,LightType:"SpotLight"|"PointLight"|"SurfaceLight",Range:number?,Brightness:number?,Color:Color3?,Shadows:boolean?,Face:Enum.NormalId?,Angle:number?},...} Changes Lights and their new properties
+-- @treturn nil
 function F3X:SetLights(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -282,6 +303,7 @@ end
 
 --- Sets the properties of the specified decorations.
 -- @tparam table Changes Decorations and their new properties
+-- @treturn nil
 function F3X:SetDecorations(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -299,6 +321,7 @@ end
 
 --- Sets the properties of the specified meshes.
 -- @tparam table Changes Meshes and their new properties
+-- @treturn nil
 function F3X:SetMeshes(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -316,6 +339,7 @@ end
 
 --- Sets the properties of the specified textures.
 -- @tparam table Changes Textures and their new properties
+-- @treturn nil
 function F3X:SetTextures(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -324,6 +348,7 @@ end
 
 --- Sets the anchored state of the specified parts.
 -- @tparam table Changes Parts and their anchored states
+-- @treturn nil
 function F3X:SetAnchors(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -332,18 +357,21 @@ end
 
 --- Anchors a single part.
 -- @tparam BasePart Part Part to anchor
+-- @treturn nil
 function F3X:Anchor(Part)
     return self:SetAnchors({{["Part"] = Part, ["Anchored"] = true}})
 end
 
 --- Unanchors a single part.
 -- @tparam BasePart Part Part to unanchor
+-- @treturn nil
 function F3X:Unanchor(Part)
     return self:SetAnchors({{["Part"] = Part, ["Anchored"] = false}})
 end
 
 --- Sets the collision state of the specified parts.
 -- @tparam table Changes Parts and their collision states
+-- @treturn nil
 function F3X:SetCollision(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -352,6 +380,7 @@ end
 
 --- Sets the material properties of the specified parts.
 -- @tparam table Changes Parts and their new material properties
+-- @treturn nil
 function F3X:SetMaterial(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -379,6 +408,7 @@ end
 
 --- Undoes the removal of the specified welds.
 -- @tparam table Welds Welds to restore
+-- @treturn nil
 function F3X:UndoRemovedWelds(Welds)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -422,6 +452,7 @@ end
 
 --- Enables or disables mouse lock.
 -- @tparam boolean Enabled True to enable, false to disable
+-- @treturn nil
 function F3X:SetMouseLockEnabled(Enabled)
     assert(self._reinit, errors.notIntialized)
     if self.endpoint.Parent == nil then self._reinit() end
@@ -431,6 +462,7 @@ end
 --- Sets the locked state of the specified items.
 -- @tparam table Items Items to lock or unlock
 -- @tparam table Locked|boolean Locked state
+-- @treturn nil
 function F3X:SetLocked(Items, Locked)
     assert(self.reinit, errors.notIntialized)
     if self.endpoint.Parent == nil then self._reinit() end
