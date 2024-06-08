@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>f3x-wrapper</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>f3x-wrapper</h1>
+
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Description">Description </a></li>
+<li><a href="#Functions">Functions </a></li>
+<li><a href="#Usage">Usage </a></li>
+</ul>
+
+
+<h2>Topics</h2>
+<ul class="">
+  <li><strong>README</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../index.html">main</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h1>f3x-wrapper</h1>
+
+<blockquote><p>[!NOTE]<br/>
+<a href="https://github.com/bqmb3">bqmb3</a> and <code>f3x-wrapper</code> is <strong>NOT</strong> affiliated with <a href="https://github.com/F3XTeam">F3X</a> in any way.</p></blockquote>
+
+<p><a name="Description"></a></p>
+
+<h2>Description</h2>
+
+<p><code>f3x-wrapper</code> is a Lua module designed to interface with the F3X building tools in Roblox. It provides a set of functions to manipulate parts, groups, lights, decorations, meshes, textures, and more within the game environment.</p>
+
+<p><a name="Functions"></a></p>
+
+<h2>Functions</h2>
+
+<h3>Initialization</h3>
+
+<ul>
+<li><strong><code>F3X.new(init: () -&gt; ())</code></strong>
+
+<ul>
+<li>Creates a new instance of the F3X module and initializes it.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Part Manipulation</h3>
+
+<ul>
+<li><p><strong><code>F3X:RecolorHandle(NewColor: BrickColor): nil</code></strong></p>
+
+<ul>
+<li>Recolors the handle of a part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:CloneParts(Items: table, Parent: Instance): table</code></strong></p>
+
+<ul>
+<li>Clones multiple parts and sets their parent.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:Clone(Item: Instance, Parent: Instance?): Instance</code></strong></p>
+
+<ul>
+<li>Clones a single part and sets its parent.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:CreatePart(PartType: string, Position: CFrame, Parent: Instance): BasePart</code></strong></p>
+
+<ul>
+<li>Creates a new part of the specified type at the given position.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:CreateGroup(Type: string, Parent: Instance, Items: {Instance}): Model | Folder</code></strong></p>
+
+<ul>
+<li>Creates a group (Model or Folder) containing the specified items.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:Ungroup(Groups: {Instance}): {Instance}</code></strong></p>
+
+<ul>
+<li>Ungroups the specified groups.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetParent(Items: {Instance}, Parent: Instance): nil</code></strong></p>
+
+<ul>
+<li>Sets the parent of the specified items.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetNames(Items: {Instance}, Name: string): nil</code></strong></p>
+
+<ul>
+<li>Sets the name of the specified items.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetName(Item: Instance, Name: string): nil</code></strong></p>
+
+<ul>
+<li>Sets the name of a single item.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:RemoveParts(Objects: {Instance}): nil</code></strong></p>
+
+<ul>
+<li>Removes the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:Remove(Object: Instance): nil</code></strong></p>
+
+<ul>
+<li>Removes a single part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:UndoRemovedParts(Objects: {Instance}): nil</code></strong></p>
+
+<ul>
+<li>Undoes the removal of the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:UndoRemove(Object: Instance): nil</code></strong></p>
+
+<ul>
+<li>Undoes the removal of a single part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:MoveParts(Changes: {{Part: BasePart, CFrame: CFrame}}): nil</code></strong></p>
+
+<ul>
+<li>Moves the specified parts to the given CFrame.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:Move(Part: BasePart, CFrame: CFrame): nil</code></strong></p>
+
+<ul>
+<li>Moves a single part to the given CFrame.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:MoveTo(Part: BasePart, Position: Vector3): nil</code></strong></p>
+
+<ul>
+<li>Moves a part to the specified position.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:ResizeParts(Changes: {{Part: BasePart, CFrame: CFrame, Size: Vector3}}): nil</code></strong></p>
+
+<ul>
+<li>Resizes the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:Resize(Part: BasePart, Size: Vector3, cf: CFrame?): nil</code></strong></p>
+
+<ul>
+<li>Resizes a single part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:RotateParts(Changes: {{Part: BasePart, CFrame: CFrame}}): nil</code></strong></p>
+
+<ul>
+<li>Rotates the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:Rotate(Part: BasePart, CFrame: CFrame): nil</code></strong></p>
+
+<ul>
+<li>Rotates a single part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetColors(Changes: {{Part: BasePart, Color: Color3}}): nil</code></strong></p>
+
+<ul>
+<li>Sets the color of the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetColor(Part: BasePart, Color: Color3): nil</code></strong></p>
+
+<ul>
+<li>Sets the color of a single part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetPartsSurfaces(Changes: {{Part: BasePart, Surfaces: {["Top" | "Front" | "Bottom" | "Right" | "Left" | "Back"]: Enum.SurfaceType}}}): nil</code></strong></p>
+
+<ul>
+<li>Sets the surfaces of the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetSurfaces(Part: BasePart, Surfaces: {["Top" | "Front" | "Bottom" | "Right" | "Left" | "Back"]: Enum.SurfaceType}): nil</code></strong></p>
+
+<ul>
+<li>Sets the surfaces of a single part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetSurface(Part: BasePart, Face: "Top" | "Front" | "Bottom" | "Right" | "Left" | "Back", SurfaceType: Enum.SurfaceType): nil</code></strong></p>
+
+<ul>
+<li>Sets the surface of a single face of a part.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Light Manipulation</h3>
+
+<ul>
+<li><p><strong><code>F3X:CreateLights(Changes: {{Part: Instance, LightType: "SpotLight" | "PointLight" | "SurfaceLight"}}): {SpotLight | PointLight | SurfaceLight}</code></strong></p>
+
+<ul>
+<li>Creates lights on the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:CreateLight(Part: Instance, LightType: "SpotLight" | "PointLight" | "SurfaceLight"): SpotLight | PointLight | SurfaceLight</code></strong></p>
+
+<ul>
+<li>Creates a single light on a part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetLights(Changes: {{Part: Instance, LightType: "SpotLight" | "PointLight" | "SurfaceLight", Range: number?, Brightness: number?, Color: Color3?, Shadows: boolean?, Face: Enum.NormalId?, Angle: number? }}): nil</code></strong></p>
+
+<ul>
+<li>Sets the properties of the specified lights.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Decoration Manipulation</h3>
+
+<ul>
+<li><p><strong><code>F3X:CreateDecorations(Changes: {{Part: Instance, DecorationType: "Smoke" | "Fire" | "Sparkles"}}): {Smoke | Fire | Sparkles}</code></strong></p>
+
+<ul>
+<li>Creates decorations on the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetDecorations(Changes: {{Part: Instance, DecorationType: "Smoke" | "Fire" | "Sparkles", Color: Color3?, Opacity: number?, RiseVelocity: number?, Size: number?, Heat: number?, SecondaryColor: Color3?, SparkleColor: Color3? }}): nil</code></strong></p>
+
+<ul>
+<li>Sets the properties of the specified decorations.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Mesh Manipulation</h3>
+
+<ul>
+<li><p><strong><code>F3X:CreateMeshes(Changes: {{Part: Instance}}): {SpecialMesh}</code></strong></p>
+
+<ul>
+<li>Creates meshes on the specified parts.</li>
+</ul>
+</li>
+<li><p>**<code>F3X:SetMeshes(Changes: {{Part: Instance, VertexColor: Vector3?, MeshType: Enum.MeshType?, Scale: Vector3?, Offset: Vector3?, MeshId: string?, TextureId: string?}}): nil</code></p>
+
+<ul>
+<li>Sets the properties of the specified meshes.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Texture Manipulation</h3>
+
+<ul>
+<li><p><strong><code>F3X:CreateTextures(Changes: {{Part: Instance, Face: Enum.NormalId, TextureType: "Texture" | "Decal"}}): {Texture | Decal}</code></strong></p>
+
+<ul>
+<li>Creates textures on the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetTextures(Changes: {{Part: Instance, Face: Enum.NormalId, TextureType: "Texture" | "Decal", Texture: string?, Transparency: number?, StudsPerTileU: number?, StudsPerTileV: number?}}): nil</code></strong></p>
+
+<ul>
+<li>Sets the properties of the specified textures.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Anchor and Collision</h3>
+
+<ul>
+<li><p><strong><code>F3X:SetAnchors(Changes: {{Part: BasePart, Anchored: boolean}}): nil</code></strong></p>
+
+<ul>
+<li>Sets the anchored state of the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:Anchor(Part: BasePart): nil</code></strong></p>
+
+<ul>
+<li>Anchors a single part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:Unanchor(Part: BasePart): nil</code></strong></p>
+
+<ul>
+<li>Unanchors a single part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetCollision(Changes: {{Part: Instance, CanCollide: boolean}}): nil</code></strong></p>
+
+<ul>
+<li>Sets the collision state of the specified parts.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Material and Welds</h3>
+
+<ul>
+<li><p><strong><code>F3X:SetMaterial(Changes: {{Part: Instance, Material: Enum.Material?, Transparency: number?, Reflectance: number?}}): nil</code></strong></p>
+
+<ul>
+<li>Sets the material properties of the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:CreateWelds(Parts: {BasePart}, TargetPart: BasePart): {Weld}</code></strong></p>
+
+<ul>
+<li>Creates welds between the specified parts and the target part.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:RemoveWelds(Welds: {Weld}): number</code></strong></p>
+
+<ul>
+<li>Removes the specified welds.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:UndoRemovedWelds(Welds: {Weld}): nil</code></strong></p>
+
+<ul>
+<li>Undoes the removal of the specified welds.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Export and HTTP Service</h3>
+
+<ul>
+<li><p><strong><code>F3X:Export(Parts: {BasePart}): string | nil</code></strong></p>
+
+<ul>
+<li>Exports the specified parts.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:IsHttpServiceEnabled(): boolean</code></strong></p>
+
+<ul>
+<li>Checks if the HTTP service is enabled.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Asset Extraction</h3>
+
+<ul>
+<li><p><strong><code>F3X:ExtractMeshFromAsset(AssetId: number): any</code></strong></p>
+
+<ul>
+<li>Extracts a mesh from the specified asset ID.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:ExtractImageFromDecal(DecalAssetId: number): string</code></strong></p>
+
+<ul>
+<li>Extracts an image from the specified decal asset ID.</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Miscellaneous</h3>
+
+<ul>
+<li><p><strong><code>F3X:SetMouseLockEnabled(Enabled: boolean): nil</code></strong></p>
+
+<ul>
+<li>Enables or disables mouse lock.</li>
+</ul>
+</li>
+<li><p><strong><code>F3X:SetLocked(Items: table, Locked: table | boolean): nil</code></strong></p>
+
+<ul>
+<li>Sets the locked state of the specified items.</li>
+</ul>
+</li>
+</ul>
+
+
+<p><a name="Usage"></a></p>
+
+<h2>Usage</h2>
+
+<p>To use the <code>f3x-wrapper</code> module, require it in your script and create an instance of the F3X class:
+<pre>
+<span class="keyword">local</span> F3X = <span class="global">require</span>(path.to.f3x-wrapper)
+<span class="keyword">local</span> f3x = F3X.<span class="function-name">new</span>()
+<span class="comment">&mdash; Example usage
+</span>f3x:<span class="function-name">CreatePart</span>(<span class="string">&ldquo;Normal&rdquo;</span>, CFrame.<span class="function-name">new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>), workspace)
+</pre></p>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2024-06-08 12:49:40 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
