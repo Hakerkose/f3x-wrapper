@@ -36,195 +36,201 @@
 
 <h2>Modules</h2>
 <ul class="nowrap">
-  <li><strong>main</strong></li>
-</ul>
-<h2>Topics</h2>
-<ul class="">
-  <li><a href="topics/README.md.html">README</a></li>
+  <li><strong>f3x-wrapper</strong></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>main</code></h1>
-<p>Creates a new instance of the F3X module and initializes it.</p>
+<h1>Module <code>f3x-wrapper</code></h1>
+<p>f3x-wrapper: An Unofficial F3X Sync API Wrapper</p>
 <p>
 </p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: bqmb3 2024</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: bqmb3</li>
+    </ul>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#F3X:RecolorHandle">F3X:RecolorHandle (NewColor)</a></td>
+	<td class="name" nowrap><a href="#F3X.new">F3X.new (function)</a></td>
+	<td class="summary">Creates a new instance of the F3X module and initializes it.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:RecolorHandle">F3X:RecolorHandle (BrickColor)</a></td>
 	<td class="summary">Recolors the handle of a part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CloneParts">F3X:CloneParts (Items, Parent)</a></td>
+	<td class="name" nowrap><a href="#F3X:CloneParts">F3X:CloneParts (table, Instance)</a></td>
 	<td class="summary">Clones multiple parts and sets their parent.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Clone">F3X:Clone (Item, Parent)</a></td>
+	<td class="name" nowrap><a href="#F3X:Clone">F3X:Clone (Instance[, Instance=Item.Parent])</a></td>
 	<td class="summary">Clones a single part and sets its parent.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreatePart">F3X:CreatePart (PartType, Position, Parent)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreatePart">F3X:CreatePart (string, CFrame, Instance)</a></td>
 	<td class="summary">Creates a new part of the specified type at the given position.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreateGroup">F3X:CreateGroup (Type, Parent, Items)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreateGroup">F3X:CreateGroup (string, Instance, table)</a></td>
 	<td class="summary">Creates a group (Model or Folder) containing the specified items.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Ungroup">F3X:Ungroup (Groups)</a></td>
+	<td class="name" nowrap><a href="#F3X:Ungroup">F3X:Ungroup (table)</a></td>
 	<td class="summary">Ungroups the specified groups.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetParent">F3X:SetParent (Items, Parent)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetParent">F3X:SetParent (table, Instance)</a></td>
 	<td class="summary">Sets the parent of the specified items.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetNames">F3X:SetNames (Items, Name)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetNames">F3X:SetNames (table, string)</a></td>
 	<td class="summary">Sets the name of the specified items.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetName">F3X:SetName (Item, Name)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetName">F3X:SetName (Instance, string)</a></td>
 	<td class="summary">Sets the name of a single item.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:RemoveParts">F3X:RemoveParts (Objects)</a></td>
+	<td class="name" nowrap><a href="#F3X:RemoveParts">F3X:RemoveParts (table)</a></td>
 	<td class="summary">Removes the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Remove">F3X:Remove (Object)</a></td>
+	<td class="name" nowrap><a href="#F3X:Remove">F3X:Remove (Instance)</a></td>
 	<td class="summary">Removes a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:UndoRemovedParts">F3X:UndoRemovedParts (Objects)</a></td>
+	<td class="name" nowrap><a href="#F3X:UndoRemovedParts">F3X:UndoRemovedParts (table)</a></td>
 	<td class="summary">Undoes the removal of the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:UndoRemove">F3X:UndoRemove (Object)</a></td>
+	<td class="name" nowrap><a href="#F3X:UndoRemove">F3X:UndoRemove (Instance)</a></td>
 	<td class="summary">Undoes the removal of a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:MoveParts">F3X:MoveParts (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:MoveParts">F3X:MoveParts (table)</a></td>
 	<td class="summary">Moves the specified parts to the given CFrame.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Move">F3X:Move (Part, CFrame)</a></td>
+	<td class="name" nowrap><a href="#F3X:Move">F3X:Move (BasePart, CFrame)</a></td>
 	<td class="summary">Moves a single part to the given CFrame.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:MoveTo">F3X:MoveTo (Part, Position)</a></td>
+	<td class="name" nowrap><a href="#F3X:MoveTo">F3X:MoveTo (BasePart, Vector3)</a></td>
 	<td class="summary">Moves a part to the specified position.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:ResizeParts">F3X:ResizeParts (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:ResizeParts">F3X:ResizeParts (table)</a></td>
 	<td class="summary">Resizes the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Resize">F3X:Resize (Part, Size, cf)</a></td>
+	<td class="name" nowrap><a href="#F3X:Resize">F3X:Resize (BasePart, Vector3, CFrame)</a></td>
 	<td class="summary">Resizes a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:RotateParts">F3X:RotateParts (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:RotateParts">F3X:RotateParts (table)</a></td>
 	<td class="summary">Rotates the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Rotate">F3X:Rotate (Part, CFrame)</a></td>
+	<td class="name" nowrap><a href="#F3X:Rotate">F3X:Rotate (BasePart, CFrame)</a></td>
 	<td class="summary">Rotates a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetColors">F3X:SetColors (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetColors">F3X:SetColors (table)</a></td>
 	<td class="summary">Sets the color of the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetColor">F3X:SetColor (Part, Color)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetColor">F3X:SetColor (BasePart, Color3)</a></td>
 	<td class="summary">Sets the color of a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetPartsSurfaces">F3X:SetPartsSurfaces (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetPartsSurfaces">F3X:SetPartsSurfaces (table)</a></td>
 	<td class="summary">Sets the surfaces of the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetSurfaces">F3X:SetSurfaces (Part, Surfaces)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetSurfaces">F3X:SetSurfaces (BasePart, table)</a></td>
 	<td class="summary">Sets the surfaces of a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetSurface">F3X:SetSurface (Part, Face, SurfaceType)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetSurface">F3X:SetSurface (BasePart, string)</a></td>
 	<td class="summary">Sets the surface of a single face of a part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreateLights">F3X:CreateLights (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreateLights">F3X:CreateLights (table)</a></td>
 	<td class="summary">Creates lights on the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreateLight">F3X:CreateLight (Part, LightType)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreateLight">F3X:CreateLight (Instance, string)</a></td>
 	<td class="summary">Creates a single light on a part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetLights">F3X:SetLights (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetLights">F3X:SetLights (table)</a></td>
 	<td class="summary">Sets the properties of the specified lights.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreateDecorations">F3X:CreateDecorations (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreateDecorations">F3X:CreateDecorations (table)</a></td>
 	<td class="summary">Creates decorations on the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetDecorations">F3X:SetDecorations (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetDecorations">F3X:SetDecorations (table)</a></td>
 	<td class="summary">Sets the properties of the specified decorations.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreateMeshes">F3X:CreateMeshes (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreateMeshes">F3X:CreateMeshes (table)</a></td>
 	<td class="summary">Creates meshes on the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetMeshes">F3X:SetMeshes (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetMeshes">F3X:SetMeshes (table)</a></td>
 	<td class="summary">Sets the properties of the specified meshes.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreateTextures">F3X:CreateTextures (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreateTextures">F3X:CreateTextures (table)</a></td>
 	<td class="summary">Creates textures on the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetTextures">F3X:SetTextures (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetTextures">F3X:SetTextures (table)</a></td>
 	<td class="summary">Sets the properties of the specified textures.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetAnchors">F3X:SetAnchors (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetAnchors">F3X:SetAnchors (table)</a></td>
 	<td class="summary">Sets the anchored state of the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Anchor">F3X:Anchor (Part)</a></td>
+	<td class="name" nowrap><a href="#F3X:Anchor">F3X:Anchor (BasePart)</a></td>
 	<td class="summary">Anchors a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Unanchor">F3X:Unanchor (Part)</a></td>
+	<td class="name" nowrap><a href="#F3X:Unanchor">F3X:Unanchor (BasePart)</a></td>
 	<td class="summary">Unanchors a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetCollision">F3X:SetCollision (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetCollision">F3X:SetCollision (table)</a></td>
 	<td class="summary">Sets the collision state of the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetMaterial">F3X:SetMaterial (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetMaterial">F3X:SetMaterial (table)</a></td>
 	<td class="summary">Sets the material properties of the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreateWelds">F3X:CreateWelds (Parts, TargetPart)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreateWelds">F3X:CreateWelds (table, BasePart)</a></td>
 	<td class="summary">Creates welds between the specified parts and the target part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:RemoveWelds">F3X:RemoveWelds (Welds)</a></td>
+	<td class="name" nowrap><a href="#F3X:RemoveWelds">F3X:RemoveWelds (table)</a></td>
 	<td class="summary">Removes the specified welds.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:UndoRemovedWelds">F3X:UndoRemovedWelds (Welds)</a></td>
+	<td class="name" nowrap><a href="#F3X:UndoRemovedWelds">F3X:UndoRemovedWelds (table)</a></td>
 	<td class="summary">Undoes the removal of the specified welds.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:Export">F3X:Export (Parts)</a></td>
+	<td class="name" nowrap><a href="#F3X:Export">F3X:Export (table)</a></td>
 	<td class="summary">Exports the specified parts.</td>
 	</tr>
 	<tr>
@@ -232,19 +238,19 @@
 	<td class="summary">Checks if the HTTP service is enabled.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:ExtractMeshFromAsset">F3X:ExtractMeshFromAsset (AssetId)</a></td>
+	<td class="name" nowrap><a href="#F3X:ExtractMeshFromAsset">F3X:ExtractMeshFromAsset (number)</a></td>
 	<td class="summary">Extracts a mesh from the specified asset ID.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:ExtractImageFromDecal">F3X:ExtractImageFromDecal (DecalAssetId)</a></td>
+	<td class="name" nowrap><a href="#F3X:ExtractImageFromDecal">F3X:ExtractImageFromDecal (number)</a></td>
 	<td class="summary">Extracts an image from the specified decal asset ID.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetMouseLockEnabled">F3X:SetMouseLockEnabled (Enabled)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetMouseLockEnabled">F3X:SetMouseLockEnabled (boolean)</a></td>
 	<td class="summary">Enables or disables mouse lock.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetLocked">F3X:SetLocked (Items, Locked)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetLocked">F3X:SetLocked (table, table)</a></td>
 	<td class="summary">Sets the locked state of the specified items.</td>
 	</tr>
 </table>
@@ -257,8 +263,35 @@
 
     <dl class="function">
     <dt>
+    <a name = "F3X.new"></a>
+    <strong>F3X.new (function)</strong>
+    </dt>
+    <dd>
+    Creates a new instance of the F3X module and initializes it.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">function</span>
+            <span class="types"><span class="type">init</span></span>
+         Initialization function
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        New F3X instance
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "F3X:RecolorHandle"></a>
-    <strong>F3X:RecolorHandle (NewColor)</strong>
+    <strong>F3X:RecolorHandle (BrickColor)</strong>
     </dt>
     <dd>
     Recolors the handle of a part.
@@ -266,8 +299,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">NewColor</span>
-         BrickColor New color for the handle
+        <li><span class="parameter">BrickColor</span>
+            <span class="types"><span class="type">NewColor</span></span>
+         New color for the handle
         </li>
     </ul>
 
@@ -278,7 +312,7 @@
 </dd>
     <dt>
     <a name = "F3X:CloneParts"></a>
-    <strong>F3X:CloneParts (Items, Parent)</strong>
+    <strong>F3X:CloneParts (table, Instance)</strong>
     </dt>
     <dd>
     Clones multiple parts and sets their parent.
@@ -286,18 +320,21 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Items</span>
-         table Parts to clone
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Items</span></span>
+         Parts to clone
         </li>
-        <li><span class="parameter">Parent</span>
-         Instance Parent instance
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Parent</span></span>
+         Parent instance
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        table Cloned parts
+           <span class="types"><span class="type">{Instance}</span></span>
+        Cloned parts
     </ol>
 
 
@@ -306,7 +343,7 @@
 </dd>
     <dt>
     <a name = "F3X:Clone"></a>
-    <strong>F3X:Clone (Item, Parent)</strong>
+    <strong>F3X:Clone (Instance[, Instance=Item.Parent])</strong>
     </dt>
     <dd>
     Clones a single part and sets its parent.
@@ -314,18 +351,23 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Item</span>
-         Instance Part to clone
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Parent</span></span>
+         Parent instance
+         (<em>default</em> Item.Parent)
         </li>
-        <li><span class="parameter">Parent</span>
-         Instance? Parent instance
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Parent</span></span>
+         Parent instance
+         (<em>default</em> Item.Parent)
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        Instance Cloned part
+           <span class="types"><span class="type">Instance</span></span>
+        Cloned part
     </ol>
 
 
@@ -334,7 +376,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreatePart"></a>
-    <strong>F3X:CreatePart (PartType, Position, Parent)</strong>
+    <strong>F3X:CreatePart (string, CFrame, Instance)</strong>
     </dt>
     <dd>
     Creates a new part of the specified type at the given position.
@@ -342,21 +384,25 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">PartType</span>
-         string Type of the part
+        <li><span class="parameter">string</span>
+            <span class="types"><span class="type">PartType</span></span>
+         Type of the part
         </li>
-        <li><span class="parameter">Position</span>
-         CFrame Position of the part
+        <li><span class="parameter">CFrame</span>
+            <span class="types"><span class="type">Position</span></span>
+         Position of the part
         </li>
-        <li><span class="parameter">Parent</span>
-         Instance Parent instance
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Parent</span></span>
+         Parent instance
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        BasePart Created part
+           <span class="types"><span class="type">BasePart</span></span>
+        Created part
     </ol>
 
 
@@ -365,7 +411,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreateGroup"></a>
-    <strong>F3X:CreateGroup (Type, Parent, Items)</strong>
+    <strong>F3X:CreateGroup (string, Instance, table)</strong>
     </dt>
     <dd>
     Creates a group (Model or Folder) containing the specified items.
@@ -373,21 +419,25 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Type</span>
-         string Type of the group
+        <li><span class="parameter">string</span>
+            <span class="types"><span class="type">Type</span></span>
+         Type of the group
         </li>
-        <li><span class="parameter">Parent</span>
-         Instance Parent instance
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Parent</span></span>
+         Parent instance
         </li>
-        <li><span class="parameter">Items</span>
-         table Items to group
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Items</span></span>
+         Items to group
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        Model|Folder Created group
+           <span class="types"><span class="type">Model</span> or <span class="type">Folder</span></span>
+        Created group
     </ol>
 
 
@@ -396,7 +446,7 @@
 </dd>
     <dt>
     <a name = "F3X:Ungroup"></a>
-    <strong>F3X:Ungroup (Groups)</strong>
+    <strong>F3X:Ungroup (table)</strong>
     </dt>
     <dd>
     Ungroups the specified groups.
@@ -404,15 +454,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Groups</span>
-         table Groups to ungroup
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Groups</span></span>
+         Groups to ungroup
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        table Ungrouped items
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        Ungrouped items
     </ol>
 
 
@@ -421,7 +473,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetParent"></a>
-    <strong>F3X:SetParent (Items, Parent)</strong>
+    <strong>F3X:SetParent (table, Instance)</strong>
     </dt>
     <dd>
     Sets the parent of the specified items.
@@ -429,11 +481,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Items</span>
-         table Items to reparent
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Items</span></span>
+         Items to reparent
         </li>
-        <li><span class="parameter">Parent</span>
-         Instance New parent instance
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Parent</span></span>
+         New parent instance
         </li>
     </ul>
 
@@ -444,7 +498,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetNames"></a>
-    <strong>F3X:SetNames (Items, Name)</strong>
+    <strong>F3X:SetNames (table, string)</strong>
     </dt>
     <dd>
     Sets the name of the specified items.
@@ -452,11 +506,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Items</span>
-         table Items to rename
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Items</span></span>
+         Items to rename
         </li>
-        <li><span class="parameter">Name</span>
-         string New name
+        <li><span class="parameter">string</span>
+            <span class="types"><span class="type">Name</span></span>
+         New name
         </li>
     </ul>
 
@@ -467,7 +523,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetName"></a>
-    <strong>F3X:SetName (Item, Name)</strong>
+    <strong>F3X:SetName (Instance, string)</strong>
     </dt>
     <dd>
     Sets the name of a single item.
@@ -475,11 +531,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Item</span>
-         Instance Item to rename
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Item</span></span>
+         Item to rename
         </li>
-        <li><span class="parameter">Name</span>
-         string New name
+        <li><span class="parameter">string</span>
+            <span class="types"><span class="type">Name</span></span>
+         New name
         </li>
     </ul>
 
@@ -490,7 +548,7 @@
 </dd>
     <dt>
     <a name = "F3X:RemoveParts"></a>
-    <strong>F3X:RemoveParts (Objects)</strong>
+    <strong>F3X:RemoveParts (table)</strong>
     </dt>
     <dd>
     Removes the specified parts.
@@ -498,8 +556,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Objects</span>
-         table Parts to remove
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Objects</span></span>
+         Parts to remove
         </li>
     </ul>
 
@@ -510,7 +569,7 @@
 </dd>
     <dt>
     <a name = "F3X:Remove"></a>
-    <strong>F3X:Remove (Object)</strong>
+    <strong>F3X:Remove (Instance)</strong>
     </dt>
     <dd>
     Removes a single part.
@@ -518,8 +577,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Object</span>
-         Instance Part to remove
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Object</span></span>
+         Part to remove
         </li>
     </ul>
 
@@ -530,7 +590,7 @@
 </dd>
     <dt>
     <a name = "F3X:UndoRemovedParts"></a>
-    <strong>F3X:UndoRemovedParts (Objects)</strong>
+    <strong>F3X:UndoRemovedParts (table)</strong>
     </dt>
     <dd>
     Undoes the removal of the specified parts.
@@ -538,8 +598,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Objects</span>
-         table Parts to restore
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Objects</span></span>
+         Parts to restore
         </li>
     </ul>
 
@@ -550,7 +611,7 @@
 </dd>
     <dt>
     <a name = "F3X:UndoRemove"></a>
-    <strong>F3X:UndoRemove (Object)</strong>
+    <strong>F3X:UndoRemove (Instance)</strong>
     </dt>
     <dd>
     Undoes the removal of a single part.
@@ -558,8 +619,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Object</span>
-         Instance Part to restore
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Object</span></span>
+         Part to restore
         </li>
     </ul>
 
@@ -570,7 +632,7 @@
 </dd>
     <dt>
     <a name = "F3X:MoveParts"></a>
-    <strong>F3X:MoveParts (Changes)</strong>
+    <strong>F3X:MoveParts (table)</strong>
     </dt>
     <dd>
     Moves the specified parts to the given CFrame.
@@ -578,8 +640,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their new CFrames
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their new CFrames
         </li>
     </ul>
 
@@ -590,7 +653,7 @@
 </dd>
     <dt>
     <a name = "F3X:Move"></a>
-    <strong>F3X:Move (Part, CFrame)</strong>
+    <strong>F3X:Move (BasePart, CFrame)</strong>
     </dt>
     <dd>
     Moves a single part to the given CFrame.
@@ -598,11 +661,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to move
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to move
         </li>
         <li><span class="parameter">CFrame</span>
-         CFrame New CFrame
+            <span class="types"><span class="type">CFrame</span></span>
+         New CFrame
         </li>
     </ul>
 
@@ -613,7 +678,7 @@
 </dd>
     <dt>
     <a name = "F3X:MoveTo"></a>
-    <strong>F3X:MoveTo (Part, Position)</strong>
+    <strong>F3X:MoveTo (BasePart, Vector3)</strong>
     </dt>
     <dd>
     Moves a part to the specified position.
@@ -621,11 +686,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to move
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to move
         </li>
-        <li><span class="parameter">Position</span>
-         Vector3 New position
+        <li><span class="parameter">Vector3</span>
+            <span class="types"><span class="type">Position</span></span>
+         New position
         </li>
     </ul>
 
@@ -636,7 +703,7 @@
 </dd>
     <dt>
     <a name = "F3X:ResizeParts"></a>
-    <strong>F3X:ResizeParts (Changes)</strong>
+    <strong>F3X:ResizeParts (table)</strong>
     </dt>
     <dd>
     Resizes the specified parts.
@@ -644,8 +711,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their new sizes and CFrames
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their new sizes and CFrames
         </li>
     </ul>
 
@@ -656,7 +724,7 @@
 </dd>
     <dt>
     <a name = "F3X:Resize"></a>
-    <strong>F3X:Resize (Part, Size, cf)</strong>
+    <strong>F3X:Resize (BasePart, Vector3, CFrame)</strong>
     </dt>
     <dd>
     Resizes a single part.
@@ -664,14 +732,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to resize
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to resize
         </li>
-        <li><span class="parameter">Size</span>
-         Vector3 New size
+        <li><span class="parameter">Vector3</span>
+            <span class="types"><span class="type">Size</span></span>
+         New size
         </li>
-        <li><span class="parameter">cf</span>
-         CFrame? Optional new CFrame
+        <li><span class="parameter">CFrame</span>
+            <span class="types"><span class="type">cf</span></span>
+        ? Optional new CFrame
         </li>
     </ul>
 
@@ -682,7 +753,7 @@
 </dd>
     <dt>
     <a name = "F3X:RotateParts"></a>
-    <strong>F3X:RotateParts (Changes)</strong>
+    <strong>F3X:RotateParts (table)</strong>
     </dt>
     <dd>
     Rotates the specified parts.
@@ -690,8 +761,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their new CFrames
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their new CFrames
         </li>
     </ul>
 
@@ -702,7 +774,7 @@
 </dd>
     <dt>
     <a name = "F3X:Rotate"></a>
-    <strong>F3X:Rotate (Part, CFrame)</strong>
+    <strong>F3X:Rotate (BasePart, CFrame)</strong>
     </dt>
     <dd>
     Rotates a single part.
@@ -710,11 +782,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to rotate
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to rotate
         </li>
         <li><span class="parameter">CFrame</span>
-         CFrame New CFrame
+            <span class="types"><span class="type">CFrame</span></span>
+         New CFrame
         </li>
     </ul>
 
@@ -725,7 +799,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetColors"></a>
-    <strong>F3X:SetColors (Changes)</strong>
+    <strong>F3X:SetColors (table)</strong>
     </dt>
     <dd>
     Sets the color of the specified parts.
@@ -733,8 +807,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their new colors
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their new colors
         </li>
     </ul>
 
@@ -745,7 +820,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetColor"></a>
-    <strong>F3X:SetColor (Part, Color)</strong>
+    <strong>F3X:SetColor (BasePart, Color3)</strong>
     </dt>
     <dd>
     Sets the color of a single part.
@@ -753,11 +828,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to color
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to color
         </li>
-        <li><span class="parameter">Color</span>
-         Color3 New color
+        <li><span class="parameter">Color3</span>
+            <span class="types"><span class="type">Color</span></span>
+         New color
         </li>
     </ul>
 
@@ -768,7 +845,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetPartsSurfaces"></a>
-    <strong>F3X:SetPartsSurfaces (Changes)</strong>
+    <strong>F3X:SetPartsSurfaces (table)</strong>
     </dt>
     <dd>
     Sets the surfaces of the specified parts.
@@ -776,8 +853,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their new surfaces
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their new surfaces
         </li>
     </ul>
 
@@ -788,7 +866,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetSurfaces"></a>
-    <strong>F3X:SetSurfaces (Part, Surfaces)</strong>
+    <strong>F3X:SetSurfaces (BasePart, table)</strong>
     </dt>
     <dd>
     Sets the surfaces of a single part.
@@ -796,11 +874,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to set surfaces
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to set surfaces
         </li>
-        <li><span class="parameter">Surfaces</span>
-         table New surfaces
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Surfaces</span></span>
+         New surfaces
         </li>
     </ul>
 
@@ -811,7 +891,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetSurface"></a>
-    <strong>F3X:SetSurface (Part, Face, SurfaceType)</strong>
+    <strong>F3X:SetSurface (BasePart, string)</strong>
     </dt>
     <dd>
     Sets the surface of a single face of a part.
@@ -819,14 +899,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to set surface
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to set surface
         </li>
-        <li><span class="parameter">Face</span>
-         string Face to set
-        </li>
-        <li><span class="parameter">SurfaceType</span>
-         Enum.SurfaceType New surface type
+        <li><span class="parameter">string</span>
+            <span class="types"><span class="type">Face</span></span>
+         Face to set
         </li>
     </ul>
 
@@ -837,7 +916,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreateLights"></a>
-    <strong>F3X:CreateLights (Changes)</strong>
+    <strong>F3X:CreateLights (table)</strong>
     </dt>
     <dd>
     Creates lights on the specified parts.
@@ -845,15 +924,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their light types
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their light types
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        table Created lights
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        Created lights
     </ol>
 
 
@@ -862,7 +943,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreateLight"></a>
-    <strong>F3X:CreateLight (Part, LightType)</strong>
+    <strong>F3X:CreateLight (Instance, string)</strong>
     </dt>
     <dd>
     Creates a single light on a part.
@@ -870,18 +951,21 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         Instance Part to create light on
+        <li><span class="parameter">Instance</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to create light on
         </li>
-        <li><span class="parameter">LightType</span>
-         string Type of light
+        <li><span class="parameter">string</span>
+            <span class="types"><span class="type">LightType</span></span>
+         Type of light
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        Instance Created light
+           <span class="types"><span class="type">Instance</span></span>
+        Created light
     </ol>
 
 
@@ -890,7 +974,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetLights"></a>
-    <strong>F3X:SetLights (Changes)</strong>
+    <strong>F3X:SetLights (table)</strong>
     </dt>
     <dd>
     Sets the properties of the specified lights.
@@ -898,8 +982,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Lights and their new properties
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Lights and their new properties
         </li>
     </ul>
 
@@ -910,7 +995,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreateDecorations"></a>
-    <strong>F3X:CreateDecorations (Changes)</strong>
+    <strong>F3X:CreateDecorations (table)</strong>
     </dt>
     <dd>
     Creates decorations on the specified parts.
@@ -918,15 +1003,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their decoration types
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their decoration types
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        table Created decorations
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        Created decorations
     </ol>
 
 
@@ -935,7 +1022,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetDecorations"></a>
-    <strong>F3X:SetDecorations (Changes)</strong>
+    <strong>F3X:SetDecorations (table)</strong>
     </dt>
     <dd>
     Sets the properties of the specified decorations.
@@ -943,8 +1030,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Decorations and their new properties
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Decorations and their new properties
         </li>
     </ul>
 
@@ -955,7 +1043,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreateMeshes"></a>
-    <strong>F3X:CreateMeshes (Changes)</strong>
+    <strong>F3X:CreateMeshes (table)</strong>
     </dt>
     <dd>
     Creates meshes on the specified parts.
@@ -963,15 +1051,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts to create meshes on
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts to create meshes on
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        table Created meshes
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        Created meshes
     </ol>
 
 
@@ -980,7 +1070,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetMeshes"></a>
-    <strong>F3X:SetMeshes (Changes)</strong>
+    <strong>F3X:SetMeshes (table)</strong>
     </dt>
     <dd>
     Sets the properties of the specified meshes.
@@ -988,8 +1078,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Meshes and their new properties
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Meshes and their new properties
         </li>
     </ul>
 
@@ -1000,7 +1091,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreateTextures"></a>
-    <strong>F3X:CreateTextures (Changes)</strong>
+    <strong>F3X:CreateTextures (table)</strong>
     </dt>
     <dd>
     Creates textures on the specified parts.
@@ -1008,15 +1099,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their texture types
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their texture types
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        table Created textures
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        Created textures
     </ol>
 
 
@@ -1025,7 +1118,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetTextures"></a>
-    <strong>F3X:SetTextures (Changes)</strong>
+    <strong>F3X:SetTextures (table)</strong>
     </dt>
     <dd>
     Sets the properties of the specified textures.
@@ -1033,8 +1126,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Textures and their new properties
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Textures and their new properties
         </li>
     </ul>
 
@@ -1045,7 +1139,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetAnchors"></a>
-    <strong>F3X:SetAnchors (Changes)</strong>
+    <strong>F3X:SetAnchors (table)</strong>
     </dt>
     <dd>
     Sets the anchored state of the specified parts.
@@ -1053,8 +1147,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their anchored states
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their anchored states
         </li>
     </ul>
 
@@ -1065,7 +1160,7 @@
 </dd>
     <dt>
     <a name = "F3X:Anchor"></a>
-    <strong>F3X:Anchor (Part)</strong>
+    <strong>F3X:Anchor (BasePart)</strong>
     </dt>
     <dd>
     Anchors a single part.
@@ -1073,8 +1168,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to anchor
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to anchor
         </li>
     </ul>
 
@@ -1085,7 +1181,7 @@
 </dd>
     <dt>
     <a name = "F3X:Unanchor"></a>
-    <strong>F3X:Unanchor (Part)</strong>
+    <strong>F3X:Unanchor (BasePart)</strong>
     </dt>
     <dd>
     Unanchors a single part.
@@ -1093,8 +1189,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Part</span>
-         BasePart Part to unanchor
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">Part</span></span>
+         Part to unanchor
         </li>
     </ul>
 
@@ -1105,7 +1202,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetCollision"></a>
-    <strong>F3X:SetCollision (Changes)</strong>
+    <strong>F3X:SetCollision (table)</strong>
     </dt>
     <dd>
     Sets the collision state of the specified parts.
@@ -1113,8 +1210,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their collision states
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their collision states
         </li>
     </ul>
 
@@ -1125,7 +1223,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetMaterial"></a>
-    <strong>F3X:SetMaterial (Changes)</strong>
+    <strong>F3X:SetMaterial (table)</strong>
     </dt>
     <dd>
     Sets the material properties of the specified parts.
@@ -1133,8 +1231,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-         table Parts and their new material properties
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Changes</span></span>
+         Parts and their new material properties
         </li>
     </ul>
 
@@ -1145,7 +1244,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreateWelds"></a>
-    <strong>F3X:CreateWelds (Parts, TargetPart)</strong>
+    <strong>F3X:CreateWelds (table, BasePart)</strong>
     </dt>
     <dd>
     Creates welds between the specified parts and the target part.
@@ -1153,18 +1252,21 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Parts</span>
-         table Parts to weld
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Parts</span></span>
+         Parts to weld
         </li>
-        <li><span class="parameter">TargetPart</span>
-         BasePart Target part
+        <li><span class="parameter">BasePart</span>
+            <span class="types"><span class="type">TargetPart</span></span>
+         Target part
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        table Created welds
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        Created welds
     </ol>
 
 
@@ -1173,7 +1275,7 @@
 </dd>
     <dt>
     <a name = "F3X:RemoveWelds"></a>
-    <strong>F3X:RemoveWelds (Welds)</strong>
+    <strong>F3X:RemoveWelds (table)</strong>
     </dt>
     <dd>
     Removes the specified welds.
@@ -1181,15 +1283,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Welds</span>
-         table Welds to remove
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Welds</span></span>
+         Welds to remove
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        number Number of removed welds
+           <span class="types"><span class="type">number</span></span>
+        Number of removed welds
     </ol>
 
 
@@ -1198,7 +1302,7 @@
 </dd>
     <dt>
     <a name = "F3X:UndoRemovedWelds"></a>
-    <strong>F3X:UndoRemovedWelds (Welds)</strong>
+    <strong>F3X:UndoRemovedWelds (table)</strong>
     </dt>
     <dd>
     Undoes the removal of the specified welds.
@@ -1206,8 +1310,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Welds</span>
-         table Welds to restore
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Welds</span></span>
+         Welds to restore
         </li>
     </ul>
 
@@ -1218,7 +1323,7 @@
 </dd>
     <dt>
     <a name = "F3X:Export"></a>
-    <strong>F3X:Export (Parts)</strong>
+    <strong>F3X:Export (table)</strong>
     </dt>
     <dd>
     Exports the specified parts.
@@ -1226,15 +1331,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Parts</span>
-         table Parts to export
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Parts</span></span>
+         Parts to export
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        string|nil Exported data
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a> or <span class="type">nil</span></span>
+        Exported data
     </ol>
 
 
@@ -1253,7 +1360,8 @@
     <h3>Returns:</h3>
     <ol>
 
-        boolean True if enabled, false otherwise
+           <span class="types"><span class="type">boolean</span></span>
+        True if enabled, false otherwise
     </ol>
 
 
@@ -1262,7 +1370,7 @@
 </dd>
     <dt>
     <a name = "F3X:ExtractMeshFromAsset"></a>
-    <strong>F3X:ExtractMeshFromAsset (AssetId)</strong>
+    <strong>F3X:ExtractMeshFromAsset (number)</strong>
     </dt>
     <dd>
     Extracts a mesh from the specified asset ID.
@@ -1270,15 +1378,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">AssetId</span>
-         number Asset ID
+        <li><span class="parameter">number</span>
+            <span class="types"><span class="type">AssetId</span></span>
+         Asset ID
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        any Extracted mesh
+           <span class="types"><span class="type">any</span></span>
+        Extracted mesh
     </ol>
 
 
@@ -1287,7 +1397,7 @@
 </dd>
     <dt>
     <a name = "F3X:ExtractImageFromDecal"></a>
-    <strong>F3X:ExtractImageFromDecal (DecalAssetId)</strong>
+    <strong>F3X:ExtractImageFromDecal (number)</strong>
     </dt>
     <dd>
     Extracts an image from the specified decal asset ID.
@@ -1295,15 +1405,17 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">DecalAssetId</span>
-         number Decal asset ID
+        <li><span class="parameter">number</span>
+            <span class="types"><span class="type">DecalAssetId</span></span>
+         Decal asset ID
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        string Extracted image
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+        Extracted image
     </ol>
 
 
@@ -1312,7 +1424,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetMouseLockEnabled"></a>
-    <strong>F3X:SetMouseLockEnabled (Enabled)</strong>
+    <strong>F3X:SetMouseLockEnabled (boolean)</strong>
     </dt>
     <dd>
     Enables or disables mouse lock.
@@ -1320,8 +1432,9 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Enabled</span>
-         boolean True to enable, false to disable
+        <li><span class="parameter">boolean</span>
+            <span class="types"><span class="type">Enabled</span></span>
+         True to enable, false to disable
         </li>
     </ul>
 
@@ -1332,7 +1445,7 @@
 </dd>
     <dt>
     <a name = "F3X:SetLocked"></a>
-    <strong>F3X:SetLocked (Items, Locked)</strong>
+    <strong>F3X:SetLocked (table, table)</strong>
     </dt>
     <dd>
     Sets the locked state of the specified items.
@@ -1340,11 +1453,13 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Items</span>
-         table Items to lock or unlock
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Locked</span></span>
+        |boolean Locked state
         </li>
-        <li><span class="parameter">Locked</span>
-         table|boolean Locked state
+        <li><span class="parameter">table</span>
+            <span class="types"><span class="type">Locked</span></span>
+        |boolean Locked state
         </li>
     </ul>
 
@@ -1360,7 +1475,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-06-08 12:49:40 </i>
+<i style="float:right;">Last updated 2024-06-08 13:03:49 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
