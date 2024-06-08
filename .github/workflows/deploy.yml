@@ -25,25 +25,12 @@ jobs:
     - name: Install Lua and LuaRocks
       run: |
         sudo apt-get update
-        sudo apt-get install -y lua5.3 lua5.3-dev
-        curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
-        tar zxf lua-5.3.5.tar.gz
-        cd lua-5.3.5
-        make linux test
-        sudo make install
-        cd ..
-        curl -R -O https://luarocks.org/releases/luarocks-3.8.0.tar.gz
-        tar zxpf luarocks-3.8.0.tar.gz
-        cd luarocks-3.8.0
-        ./configure --with-lua-include=/usr/local/include
-        make
-        sudo make install
-        cd ..
+        sudo apt-get install -y lua5.3 luarocks
 
     - name: Install LDoc
       run: |
-        luarocks install ldoc --local
-        export PATH=$HOME/.luarocks/bin:$PATH
+        luarocks install --local ldoc
+        echo 'export PATH=$HOME/.luarocks/bin:$PATH' >> $GITHUB_ENV
 
     - name: Generate LDoc Documentation
       run: |
