@@ -27,9 +27,12 @@ jobs:
         run: |
           luarocks install --local ldoc
 
+      - name: Add LuaRocks binaries to PATH
+       run: echo "::add-path::/home/runner/.luarocks/bin/"
+
       - name: Generate documentation
         run: |
-          ldoc .  # Adjust this if you need to specify a different directory or configuration file
+          ldoc main.lua
         id: generate_docs
 
       - name: Deploy to GitHub Pages
