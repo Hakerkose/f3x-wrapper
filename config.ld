@@ -5,6 +5,5 @@ format = "discount"
 backtick_references = false
 file = "main.lua"
 dir = "public"
-readme = "README.md"
 style = "!new"
 -- vim: ft=lua
