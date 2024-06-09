@@ -285,14 +285,14 @@ end
 
 --- Sets the properties of the specified lights.
 -- @tparam table Changes A table containing information about the lights to be set.
---   @field Instance Part The part to which the light belongs.
---   @field "SpotLight"|"PointLight"|"SurfaceLight" LightType The type of light to be set.
---   @field[opt] number Range The range of the light.
---   @field[opt] number Brightness The brightness of the light.
---   @field[opt] Color3 Color The color of the light.
---   @field[opt] boolean Shadows Whether the light should cast shadows.
---   @field[opt] Enum.NormalId Face The face of the part to which the light is applied.
---   @field[opt] number Angle The angle of the light.
+-- @tparam Instance Changes.Part The part to which the light belongs.
+-- @tparam "SpotLight"|"PointLight"|"SurfaceLight" Changes.LightType The type of light to be set.
+-- @tparam[opt] number Changes.Range The range of the light.
+-- @tparam[opt] number Changes.Brightness The brightness of the light.
+-- @tparam[opt] Color3 Changes.Color The color of the light.
+-- @tparam[opt] boolean Changes.Shadows Whether the light should cast shadows.
+-- @tparam[opt] Enum.NormalId Changes.Face The face of the part to which the light is applied.
+-- @tparam[opt] number Changes.Angle The angle of the light.
 -- @treturn nil
 function F3X:SetLights(Changes)
     assert(self._reinit, errors.notIntialized)
