@@ -75,12 +75,12 @@ end
 --- Creates a new part of the specified type at the given position.
 -- @tparam 'Normal'|'Truss'|'Wedge'|'Corner'|'Cylinder'|'Ball'|'Seat'|'Vehicle Seat'|'Spawn' PartType Type of the part
 -- @tparam CFrame Position Position of the part
--- @tparam Instance Parent Parent instance
+-- @tparam[opt=workspace] Instance Parent Parent instance
 -- @treturn BasePart Created part
 function F3X:CreatePart(PartType, Position, Parent)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
-    return self._endpoint:InvokeServer("CreatePart", PartType, Position, Parent)
+    return self._endpoint:InvokeServer("CreatePart", PartType, Position, Parent or workspace)
 end
 
 --- Creates a group (Model or Folder) containing the specified items.
