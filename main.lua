@@ -285,7 +285,7 @@ function F3X:CreateLight(Part, LightType)
 end
 
 --- Sets the properties of the specified lights.
--- @tparam {table,...} Changes A table containing information about the lights to be set.
+-- @tparam table Changes A table containing information about the lights to be set.
 --   @tparam Instance Changes.Part The part to which the light belongs.
 --   @tparam "SpotLight"|"PointLight"|"SurfaceLight" Changes.LightType The type of light to be set.
 --   @tparam[opt] number Changes.Range The range of the light.
