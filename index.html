@@ -31,6 +31,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Tables">Tables</a></li>
 </ul>
 
 
@@ -74,7 +75,7 @@
 	<td class="summary">Clones a single part and sets its parent.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreatePart">F3X:CreatePart (Seat, Position, Parent)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreatePart">F3X:CreatePart (Seat, Position[, Parent=workspace])</a></td>
 	<td class="summary">Creates a new part of the specified type at the given position.</td>
 	</tr>
 	<tr>
@@ -254,6 +255,13 @@
 	<td class="summary">Sets the locked state of the specified items.</td>
 	</tr>
 </table>
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#LightProperties">LightProperties</a></td>
+	<td class="summary">F3X:SetLights()</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
@@ -382,7 +390,7 @@
 </dd>
     <dt>
     <a name = "F3X:CreatePart"></a>
-    <strong>F3X:CreatePart (Seat, Position, Parent)</strong>
+    <strong>F3X:CreatePart (Seat, Position[, Parent=workspace])</strong>
     </dt>
     <dd>
     Creates a new part of the specified type at the given position.
@@ -401,6 +409,7 @@
         <li><span class="parameter">Parent</span>
             <span class="types"><span class="type">Instance</span></span>
          Parent instance
+         (<em>default</em> workspace)
         </li>
     </ul>
 
@@ -1126,47 +1135,10 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span> A table containing information about the lights to be set.
-        <ul>
-        <li><span class="parameter">Part</span>
-            <span class="types"><span class="type">Instance</span></span>
-         The part to which the light belongs.
+        <li><span class="parameter">Changes</span>
+            <span class="types"><a class="type" href="index.html#LightProperties">{LightProperties,...}</a></span>
+         A table containing information about the lights to be set.
         </li>
-        <li><span class="parameter">LightType</span>
-            <span class="types"><span class="type">"SpotLight"</span>, <span class="type">"PointLight"</span> or <span class="type">"SurfaceLight"</span></span>
-         The type of light to be set.
-        </li>
-        <li><span class="parameter">Range</span>
-            <span class="types"><span class="type">number</span></span>
-         The range of the light.
-         (<em>optional</em>)
-        </li>
-        <li><span class="parameter">Brightness</span>
-            <span class="types"><span class="type">number</span></span>
-         The brightness of the light.
-         (<em>optional</em>)
-        </li>
-        <li><span class="parameter">Color</span>
-            <span class="types"><span class="type">Color3</span></span>
-         The color of the light.
-         (<em>optional</em>)
-        </li>
-        <li><span class="parameter">Shadows</span>
-            <span class="types"><span class="type">boolean</span></span>
-         Whether the light should cast shadows.
-         (<em>optional</em>)
-        </li>
-        <li><span class="parameter">Face</span>
-            <span class="types"><span class="type">Enum.NormalId</span></span>
-         The face of the part to which the light is applied.
-         (<em>optional</em>)
-        </li>
-        <li><span class="parameter">Angle</span>
-            <span class="types"><span class="type">number</span></span>
-         The angle of the light.
-         (<em>optional</em>)
-        </li>
-        </li></ul>
     </ul>
 
     <h3>Returns:</h3>
@@ -1734,13 +1706,64 @@
 
 </dd>
 </dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "LightProperties"></a>
+    <strong>LightProperties</strong>
+    </dt>
+    <dd>
+    F3X:SetLights()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Instance</span>
+         Part The part to which the light belongs.
+        </li>
+        <li><span class="parameter">SpotLight</span>
+        &ldquo;|"PointLight&rdquo;|&ldquo;SurfaceLight&rdquo; LightType The type of light to be set.
+        </li>
+        <li><span class="parameter">number</span>
+         Angle The angle of the light.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">number</span>
+         Angle The angle of the light.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Color3</span>
+         Color The color of the light.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">boolean</span>
+         Shadows Whether the light should cast shadows.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">number</span>
+         Angle The angle of the light.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="index.html#F3X:SetLights">SetLights</a>
+    </ul>
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-06-09 00:52:04 </i>
+<i style="float:right;">Last updated 2024-06-12 07:15:11 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
