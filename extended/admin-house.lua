@@ -1,3 +1,10 @@
+--- Extended version of f3x-wrapper for the game 'Admin House!' by Kaderth
+-- @module f3x-wrapper-extended-admin-house
+-- @author bqmb3
+-- @license MIT
+-- @copyright bqmb3 2024
+
+
 _G.F3X__init_func = function()
    if _G.F3X__init_debounce then return end
    _G.F3X__init_debounce = true
@@ -9,7 +16,7 @@ end
 local F3X = loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/main.lua", true))()
 
 --- Gets the list of builds.
--- @treturn List table of build names
+-- @treturn table List of build names
 function F3X:GetBuilds()
    local tbl = game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'GET'})
    local builds = {}
@@ -21,14 +28,14 @@ end
 
 --- Checks if a build exists.
 -- @tparam string buildName Name of the build
--- @treturn True boolean if the build exists, false otherwise
+-- @treturn boolean True if the build exists, false otherwise
 function F3X:HasBuild(buildName)
    return game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'GET'})[buildName] ~= nil
 end
 
 --- Loads a build.
 -- @tparam string buildName Name of the build
--- @treturn List table of instances in the build
+-- @treturn table List of instances in the build
 function F3X:LoadBuild(buildName)
    local result = game:GetService('ReplicatedStorage').Network.BuildSaving:InvokeServer({'LOAD', buildName})
    assert(result, 'Build not found.')
@@ -66,7 +73,7 @@ function F3X:SetLockModeToOnlyMe()
 end
 
 --- Gets the list of whitelisted players.
--- @treturn List table of whitelisted players
+-- @treturn table List of whitelisted players
 function F3X:GetWhitelistedPlayers()
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"GETWHITELIST"})
 end

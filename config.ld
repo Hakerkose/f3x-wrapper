@@ -1,9 +1,9 @@
 project = "f3x-wrapper"
 title = "f3x-wrapper"
-description = "f3x-wrapper is an unofficial F3X Sync API wrapper."
+description = "Unofficial F3X Sync API Wrapper"
 format = "discount"
 backtick_references = false
-file = "main.lua"
+file = {"main.lua","extended/admin-house.lua"}
 dir = "public"
 style = "!new"
 -- vim: ft=lua
