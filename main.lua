@@ -476,7 +476,7 @@ end
 
 --- Sets the locked state of the specified items.
 -- @tparam table Items Items to lock or unlock
--- @tparam table Locked|boolean Locked state
+-- @tparam table|boolean Locked Locked state
 -- @treturn nil
 function F3X:SetLocked(Items, Locked)
     assert(self.reinit, errors.notIntialized)
