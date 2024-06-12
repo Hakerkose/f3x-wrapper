@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>f3x-wrapper</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>f3x-wrapper</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/f3x-wrapper.html">f3x-wrapper</a></li>
+  <li><strong>f3x-wrapper-extended-admin-house</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>f3x-wrapper-extended-admin-house</code></h1>
+<p>Extended version of f3x-wrapper for the game &lsquo;Admin House!&rsquo; by Kaderth</p>
+<p>
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: bqmb3 2024</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: bqmb3</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#F3X:GetBuilds">F3X:GetBuilds ()</a></td>
+	<td class="summary">Gets the list of builds.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:HasBuild">F3X:HasBuild (buildName)</a></td>
+	<td class="summary">Checks if a build exists.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:LoadBuild">F3X:LoadBuild (buildName)</a></td>
+	<td class="summary">Loads a build.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetLockMode">F3X:SetLockMode (mode)</a></td>
+	<td class="summary">Sets the lock mode.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetLockModeToEveryone">F3X:SetLockModeToEveryone ()</a></td>
+	<td class="summary">Sets the lock mode to everyone.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetLockModeToFriends">F3X:SetLockModeToFriends ()</a></td>
+	<td class="summary">Sets the lock mode to friends.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetLockModeToCustom">F3X:SetLockModeToCustom ()</a></td>
+	<td class="summary">Sets the lock mode to custom.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetLockModeToOnlyMe">F3X:SetLockModeToOnlyMe ()</a></td>
+	<td class="summary">Sets the lock mode to only me.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:GetWhitelistedPlayers">F3X:GetWhitelistedPlayers ()</a></td>
+	<td class="summary">Gets the list of whitelisted players.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:AddToWhitelist">F3X:AddToWhitelist (userId)</a></td>
+	<td class="summary">Adds a player to the whitelist.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:RemoveFromWhitelist">F3X:RemoveFromWhitelist (userId)</a></td>
+	<td class="summary">Removes a player from the whitelist.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "F3X:GetBuilds"></a>
+    <strong>F3X:GetBuilds ()</strong>
+    </dt>
+    <dd>
+    Gets the list of builds.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        List of build names
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:HasBuild"></a>
+    <strong>F3X:HasBuild (buildName)</strong>
+    </dt>
+    <dd>
+    Checks if a build exists.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">buildName</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         Name of the build
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if the build exists, false otherwise
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:LoadBuild"></a>
+    <strong>F3X:LoadBuild (buildName)</strong>
+    </dt>
+    <dd>
+    Loads a build.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">buildName</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         Name of the build
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        List of instances in the build
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetLockMode"></a>
+    <strong>F3X:SetLockMode (mode)</strong>
+    </dt>
+    <dd>
+    Sets the lock mode.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">mode</span>
+            <span class="types"><span class="type">number</span></span>
+         Lock mode
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetLockModeToEveryone"></a>
+    <strong>F3X:SetLockModeToEveryone ()</strong>
+    </dt>
+    <dd>
+    Sets the lock mode to everyone.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetLockModeToFriends"></a>
+    <strong>F3X:SetLockModeToFriends ()</strong>
+    </dt>
+    <dd>
+    Sets the lock mode to friends.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetLockModeToCustom"></a>
+    <strong>F3X:SetLockModeToCustom ()</strong>
+    </dt>
+    <dd>
+    Sets the lock mode to custom.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetLockModeToOnlyMe"></a>
+    <strong>F3X:SetLockModeToOnlyMe ()</strong>
+    </dt>
+    <dd>
+    Sets the lock mode to only me.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:GetWhitelistedPlayers"></a>
+    <strong>F3X:GetWhitelistedPlayers ()</strong>
+    </dt>
+    <dd>
+    Gets the list of whitelisted players.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        List of whitelisted players
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:AddToWhitelist"></a>
+    <strong>F3X:AddToWhitelist (userId)</strong>
+    </dt>
+    <dd>
+    Adds a player to the whitelist.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">userId</span>
+            <span class="types"><span class="type">number</span></span>
+         User ID of the player
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:RemoveFromWhitelist"></a>
+    <strong>F3X:RemoveFromWhitelist (userId)</strong>
+    </dt>
+    <dd>
+    Removes a player from the whitelist.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">userId</span>
+            <span class="types"><span class="type">number</span></span>
+         User ID of the player
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2024-06-12 07:24:54 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
