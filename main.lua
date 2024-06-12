@@ -66,7 +66,7 @@ end
 
 --- Clones a single part and sets its parent.
 -- @tparam Instance Item Part to clone
--- @tparam[opt=Item.Parent] Parent Instance Parent instance
+-- @tparam[opt=Item.Parent] Instance Parent Parent instance
 -- @treturn Instance Cloned part
 function F3X:Clone(Item, Parent)
     return self:CloneParts({Item}, Parent or Item.Parent)[1]
@@ -203,7 +203,7 @@ end
 --- Resizes a single part.
 -- @tparam BasePart Part Part to resize
 -- @tparam Vector3 Size New size
--- @tparam[opt=Part.CFrame] cf new CFrame
+-- @tparam[opt=Part.CFrame] CFrame cf new CFrame
 -- @treturn nil
 function F3X:Resize(Part, Size, cf)
     return self:ResizeParts({{["Part"] = Part, ["Size"] = Size, ["CFrame"] = cf}})
