@@ -4,6 +4,11 @@
 -- @license MIT
 -- @copyright bqmb3 2024
 
+if _G.F3X_wrapper_module then
+    warn('f3x-wrapper already loaded, using preloaded module')
+    return _G.F3X_wrapper_module
+end
+
 local F3X = {}
 F3X.__index = F3X
 
@@ -15,20 +20,18 @@ local errors = {
     notIntialized = "Not Initialized",
 }
 
-local initFunc = _G.F3X__init_func or function()
-    game.Players:Chat(':f3x')
-end
-
 --- Creates a new instance of the F3X module and initializes it.
 -- @tparam function init Initialization function
 -- @treturn table New F3X instance
 function F3X.new(init)
-    init = init or initFunc
+    init = init or _G.F3X__init_func or function()
+        game.Players:Chat(':f3x')
+    end
     local self
     self = setmetatable({
         _reinit = function()
             init()
-            local Folder = plr.Backpack:WaitForChild('Folder', 1)
+            local Folder = plr.Backpack:WaitForChild('Folder', 1) or plr.Backpack:WaitForChild('Building Tools', 1)
             local Core = Folder and Folder:WaitForChild('Core', 1)
             local SyncAPI = Folder and Folder:WaitForChild('SyncAPI', 1)
             local ServerEndpoint = SyncAPI and SyncAPI:WaitForChild('ServerEndpoint', 1)
@@ -36,6 +39,7 @@ function F3X.new(init)
             assert(ServerEndpoint, errors.endpointNotFound)
             self._core = Core
             self._endpoint = ServerEndpoint
+            self:SetParent({Folder}, plr.PlayerGui)
         end,
         _core = nil,
         _endpoint = nil,
@@ -179,7 +183,7 @@ end
 -- @tparam BasePart Part Part to move
 -- @tparam CFrame CFrame New CFrame
 -- @treturn nil
-function F3X:Move(Part, CFrame)
+function F3X:Move(Object, CFrame)
     return self:MoveParts({{["Part"] = Part, ["CFrame"] = CFrame}})
 end
 
@@ -483,5 +487,7 @@ function F3X:SetLocked(Items, Locked)
     if self.endpoint.Parent == nil then self._reinit() end
     return self.endpoint:InvokeServer("SetLocked", Items, Locked)
 end
+
+_G.F3X_wrapper_module = F3X
 
 return F3X
