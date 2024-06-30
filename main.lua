@@ -183,7 +183,7 @@ end
 -- @tparam BasePart Part Part to move
 -- @tparam CFrame CFrame New CFrame
 -- @treturn nil
-function F3X:Move(Object, CFrame)
+function F3X:Move(Part, CFrame)
     return self:MoveParts({{["Part"] = Part, ["CFrame"] = CFrame}})
 end
 
