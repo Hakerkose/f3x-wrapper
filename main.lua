@@ -39,7 +39,7 @@ function F3X.new(init)
             assert(ServerEndpoint, errors.endpointNotFound)
             self._core = Core
             self._endpoint = ServerEndpoint
-            self:SetParent({Folder}, plr)
+            self:SetParent({Folder}, workspace)
         end,
         _core = nil,
         _endpoint = nil,
