@@ -14,7 +14,7 @@ _G.F3X__init_func = function()
    _G.F3X__init_debounce = false
 end
 
-local F3X = loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/main.lua", true))()
+local F3X = _G.F3X_wrapper_module or loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/main.lua", true))()
 
 --- Gets the list of builds.
 -- @treturn table List of build names
@@ -92,5 +92,7 @@ end
 function F3X:RemoveFromWhitelist(userId)
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"REMOVEWHITELIST", userId})
 end
+
+_G.F3X_wrapper_module = F3X
 
 return F3X
