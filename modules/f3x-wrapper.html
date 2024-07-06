@@ -187,7 +187,11 @@
 	<td class="summary">Sets the properties of the specified decorations.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:CreateMeshes">F3X:CreateMeshes (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:CreateMeshes">F3X:CreateMeshes (Objects)</a></td>
+	<td class="summary">(deprecated) Creates meshes on the specified parts.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:CreateMeshesOnParts">F3X:CreateMeshesOnParts (Objects)</a></td>
 	<td class="summary">Creates meshes on the specified parts.</td>
 	</tr>
 	<tr>
@@ -215,12 +219,28 @@
 	<td class="summary">Unanchors a single part.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetCollision">F3X:SetCollision (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetCollisions">F3X:SetCollisions (Changes)</a></td>
 	<td class="summary">Sets the collision state of the specified parts.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#F3X:SetMaterial">F3X:SetMaterial (Changes)</a></td>
+	<td class="name" nowrap><a href="#F3X:SetCollision">F3X:SetCollision (Part, CanCollide)</a></td>
+	<td class="summary">Sets the CanCollide property of single part.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetMaterials">F3X:SetMaterials (Changes)</a></td>
 	<td class="summary">Sets the material properties of the specified parts.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetMaterial">F3X:SetMaterial (Part, Material)</a></td>
+	<td class="summary">Sets the material of single part.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetTransparency">F3X:SetTransparency (Part, Transparency)</a></td>
+	<td class="summary">Sets the transparency of single part.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:SetReflectance">F3X:SetReflectance (Part, Reflectance)</a></td>
+	<td class="summary">Sets the reflectance of single part.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#F3X:CreateWelds">F3X:CreateWelds (Parts, TargetPart)</a></td>
@@ -258,12 +278,64 @@
 	<td class="name" nowrap><a href="#F3X:SetLocked">F3X:SetLocked (Items, Locked)</a></td>
 	<td class="summary">Sets the locked state of the specified items.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#F3X:GetSelectedParts">F3X:GetSelectedParts ()</a></td>
+	<td class="summary">Gets the currently selected parts.</td>
+	</tr>
 </table>
 <h2><a href="#Tables">Tables</a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#PartMovement">PartMovement</a></td>
+	<td class="summary">F3X:MoveParts(), F3X:RotateParts()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PartResize">PartResize</a></td>
+	<td class="summary">F3X:ResizeParts()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SurfaceProperties">SurfaceProperties</a></td>
+	<td class="summary">F3X:SetPartsSurfaces()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LightCreation">LightCreation</a></td>
+	<td class="summary">F3X:CreateLights()</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#LightProperties">LightProperties</a></td>
 	<td class="summary">F3X:SetLights()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DecorationCreation">DecorationCreation</a></td>
+	<td class="summary">F3X:CreateDecorations()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#DecorationProperties">DecorationProperties</a></td>
+	<td class="summary">F3X:SetDecorations()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MeshProperties">MeshProperties</a></td>
+	<td class="summary">F3X:SetMeshes()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#TextureCreation">TextureCreation</a></td>
+	<td class="summary">F3X:CreateTextures()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#TextureProperties">TextureProperties</a></td>
+	<td class="summary">F3X:SetTextures()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AnchorProperties">AnchorProperties</a></td>
+	<td class="summary">F3X:SetAnchors()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CollisionProperties">CollisionProperties</a></td>
+	<td class="summary">F3X:SetCollisions()</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MaterialProperties">MaterialProperties</a></td>
+	<td class="summary">F3X:SetMaterials()</td>
 	</tr>
 </table>
 
@@ -709,7 +781,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><span class="type">{{Part:BasePart,CFrame:CFrame},...}</span></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#PartMovement">{PartMovement,...}</a></span>
          Parts and their new CFrames
         </li>
     </ul>
@@ -801,7 +873,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><span class="type">{{Part:BasePart,CFrame:CFrame,Size:Vector3},...}</span></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#PartResize">{PartResize,...}</a></span>
          Parts and their new sizes and CFrames
         </li>
     </ul>
@@ -866,7 +938,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><span class="type">{{Part:BasePart,CFrame:CFrame},...}</span></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#PartMovement">{PartMovement,...}</a></span>
          Parts and their new CFrames
         </li>
     </ul>
@@ -986,7 +1058,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><span class="type">{{Part:BasePart,Surfaces:{["Top"</span>, <span class="type">"Front"</span>, <span class="type">"Bottom"</span>, <span class="type">"Right"</span>, <span class="type">"Left"</span> or <span class="type">"Back"]:Enum.SurfaceType}},...}</span></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#SurfaceProperties">{SurfaceProperties,...}</a></span>
          Parts and their new surfaces
         </li>
     </ul>
@@ -1082,7 +1154,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><span class="type">{{Part:BasePart,LightType:"SpotLight"</span>, <span class="type">"PointLight"</span> or <span class="type">"SurfaceLight"},...}</span></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#LightCreation">{LightCreation,...}</a></span>
          Parts and their light types
         </li>
     </ul>
@@ -1168,7 +1240,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#DecorationCreation">{DecorationCreation,...}</a></span>
          Parts and their decoration types
         </li>
     </ul>
@@ -1176,7 +1248,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+           <span class="types"><span class="type">{Smoke</span>, <span class="type">Fire</span> or <span class="type">Sparkles,...}</span></span>
         Created decorations
     </ol>
 
@@ -1195,7 +1267,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#DecorationProperties">{DecorationProperties,...}</a></span>
          Decorations and their new properties
         </li>
     </ul>
@@ -1214,16 +1286,16 @@
 </dd>
     <dt>
     <a name = "F3X:CreateMeshes"></a>
-    <strong>F3X:CreateMeshes (Changes)</strong>
+    <strong>F3X:CreateMeshes (Objects)</strong>
     </dt>
     <dd>
-    Creates meshes on the specified parts.
+    (deprecated) Creates meshes on the specified parts.
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        <li><span class="parameter">Objects</span>
+            <span class="types"><span class="type">{{["Part"]:BasePart},...}</span></span>
          Parts to create meshes on
         </li>
     </ul>
@@ -1231,7 +1303,38 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+           <span class="types"><span class="type">{SpecialMesh,...}</span></span>
+        Created meshes
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:CreateMeshesOnParts">CreateMeshesOnParts</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "F3X:CreateMeshesOnParts"></a>
+    <strong>F3X:CreateMeshesOnParts (Objects)</strong>
+    </dt>
+    <dd>
+    Creates meshes on the specified parts.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">Objects</span>
+            <span class="types"><span class="type">{BasePart,...}</span></span>
+         Parts to create meshes on
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">{SpecialMesh,...}</span></span>
         Created meshes
     </ol>
 
@@ -1250,7 +1353,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#MeshProperties">{MeshProperties,...}</a></span>
          Meshes and their new properties
         </li>
     </ul>
@@ -1278,7 +1381,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#TextureCreation">{TextureCreation,...}</a></span>
          Parts and their texture types
         </li>
     </ul>
@@ -1286,7 +1389,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+           <span class="types"><span class="type">{Texture</span> or <span class="type">Decal,...}</span></span>
         Created textures
     </ol>
 
@@ -1305,7 +1408,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#TextureProperties">{TextureProperties,...}</a></span>
          Textures and their new properties
         </li>
     </ul>
@@ -1333,7 +1436,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#AnchorProperties">{AnchorProperties,...}</a></span>
          Parts and their anchored states
         </li>
     </ul>
@@ -1407,8 +1510,8 @@
 
 </dd>
     <dt>
-    <a name = "F3X:SetCollision"></a>
-    <strong>F3X:SetCollision (Changes)</strong>
+    <a name = "F3X:SetCollisions"></a>
+    <strong>F3X:SetCollisions (Changes)</strong>
     </dt>
     <dd>
     Sets the collision state of the specified parts.
@@ -1417,7 +1520,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#CollisionProperties">{CollisionProperties,...}</a></span>
          Parts and their collision states
         </li>
     </ul>
@@ -1435,8 +1538,40 @@
 
 </dd>
     <dt>
-    <a name = "F3X:SetMaterial"></a>
-    <strong>F3X:SetMaterial (Changes)</strong>
+    <a name = "F3X:SetCollision"></a>
+    <strong>F3X:SetCollision (Part, CanCollide)</strong>
+    </dt>
+    <dd>
+    Sets the CanCollide property of single part.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">BasePart</span></span>
+         The part
+        </li>
+        <li><span class="parameter">CanCollide</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Whether the part can collide with other parts.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetMaterials"></a>
+    <strong>F3X:SetMaterials (Changes)</strong>
     </dt>
     <dd>
     Sets the material properties of the specified parts.
@@ -1445,8 +1580,104 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Changes</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><a class="type" href="../modules/f3x-wrapper.html#MaterialProperties">{MaterialProperties,...}</a></span>
          Parts and their new material properties
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetMaterial"></a>
+    <strong>F3X:SetMaterial (Part, Material)</strong>
+    </dt>
+    <dd>
+    Sets the material of single part.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">BasePart</span></span>
+         The part
+        </li>
+        <li><span class="parameter">Material</span>
+            <span class="types"><span class="type">Enum.Material</span></span>
+         The material of the part.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetTransparency"></a>
+    <strong>F3X:SetTransparency (Part, Transparency)</strong>
+    </dt>
+    <dd>
+    Sets the transparency of single part.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">BasePart</span></span>
+         The part
+        </li>
+        <li><span class="parameter">Transparency</span>
+            <span class="types"><span class="type">number</span></span>
+         The transparency of the part.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">nil</span></span>
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "F3X:SetReflectance"></a>
+    <strong>F3X:SetReflectance (Part, Reflectance)</strong>
+    </dt>
+    <dd>
+    Sets the reflectance of single part.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">BasePart</span></span>
+         The part
+        </li>
+        <li><span class="parameter">Reflectance</span>
+            <span class="types"><span class="type">number</span></span>
+         The reflectance of the part.
         </li>
     </ul>
 
@@ -1473,7 +1704,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Parts</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><span class="type">{BasePart,...}</span></span>
          Parts to weld
         </li>
         <li><span class="parameter">TargetPart</span>
@@ -1485,7 +1716,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+           <span class="types"><span class="type">{Weld,...}</span></span>
         Created welds
     </ol>
 
@@ -1504,7 +1735,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Welds</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><span class="type">{Weld,...}</span></span>
          Welds to remove
         </li>
     </ul>
@@ -1531,7 +1762,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Welds</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><span class="type">{Weld,...}</span></span>
          Welds to restore
         </li>
     </ul>
@@ -1559,7 +1790,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">Parts</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+            <span class="types"><span class="type">{BasePart,...}</span></span>
          Parts to export
         </li>
     </ul>
@@ -1709,10 +1940,151 @@
 
 
 </dd>
+    <dt>
+    <a name = "F3X:GetSelectedParts"></a>
+    <strong>F3X:GetSelectedParts ()</strong>
+    </dt>
+    <dd>
+    Gets the currently selected parts.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">{Instance,...}</span></span>
+        A table containing the selected parts
+    </ol>
+
+
+
+
+</dd>
 </dl>
     <h2 class="section-header "><a name="Tables"></a>Tables</h2>
 
     <dl class="function">
+    <dt>
+    <a name = "PartMovement"></a>
+    <strong>PartMovement</strong>
+    </dt>
+    <dd>
+    F3X:MoveParts(), F3X:RotateParts()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         Part to move
+        </li>
+        <li><span class="parameter">CFrame</span>
+            <span class="types"><span class="type">CFrame</span></span>
+         New CFrame
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <li><a href="../modules/f3x-wrapper.html#F3X:MoveParts">MoveParts</a></li>
+         <li><a href="../modules/f3x-wrapper.html#F3X:RotateParts">RotateParts</a></li>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "PartResize"></a>
+    <strong>PartResize</strong>
+    </dt>
+    <dd>
+    F3X:ResizeParts()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         Part to resize
+        </li>
+        <li><span class="parameter">CFrame</span>
+            <span class="types"><span class="type">CFrame</span></span>
+         New CFrame
+        </li>
+        <li><span class="parameter">Size</span>
+            <span class="types"><span class="type">Vector3</span></span>
+         New Size
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:MoveParts">MoveParts</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "SurfaceProperties"></a>
+    <strong>SurfaceProperties</strong>
+    </dt>
+    <dd>
+    F3X:SetPartsSurfaces()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part
+        </li>
+        <li><span class="parameter">Surfaces</span>
+            <span class="types"><span class="type">{["Top"</span>, <span class="type">"Front"</span>, <span class="type">"Bottom"</span>, <span class="type">"Right"</span>, <span class="type">"Left"</span> or <span class="type">"Back"]:Enum.SurfaceType},...}</span></span>
+         The face and type of surface to be set.
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:SetPartsSurfaces">SetPartsSurfaces</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "LightCreation"></a>
+    <strong>LightCreation</strong>
+    </dt>
+    <dd>
+    F3X:CreateLights()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part
+        </li>
+        <li><span class="parameter">LightType</span>
+            <span class="types"><span class="type">"SpotLight"</span>, <span class="type">"PointLight"</span> or <span class="type">"SurfaceLight"</span></span>
+         The type of light to be created.
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:CreateLights">CreateLights</a>
+    </ul>
+
+
+</dd>
     <dt>
     <a name = "LightProperties"></a>
     <strong>LightProperties</strong>
@@ -1723,30 +2095,42 @@
 
     <h3>Fields:</h3>
     <ul>
-        <li><span class="parameter">Instance</span>
-         Part The part to which the light belongs.
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part to which the light belongs.
         </li>
-        <li><span class="parameter">SpotLight</span>
-        &ldquo;|"PointLight&rdquo;|&ldquo;SurfaceLight&rdquo; LightType The type of light to be set.
+        <li><span class="parameter">LightType</span>
+            <span class="types"><span class="type">"SpotLight"</span>, <span class="type">"PointLight"</span> or <span class="type">"SurfaceLight"</span></span>
+         The type of light to be set.
         </li>
-        <li><span class="parameter">number</span>
-         Angle The angle of the light.
+        <li><span class="parameter">Range</span>
+            <span class="types"><span class="type">number</span></span>
+         The range of the light.
          (<em>optional</em>)
         </li>
-        <li><span class="parameter">number</span>
-         Angle The angle of the light.
+        <li><span class="parameter">Brightness</span>
+            <span class="types"><span class="type">number</span></span>
+         The brightness of the light.
          (<em>optional</em>)
         </li>
-        <li><span class="parameter">Color3</span>
-         Color The color of the light.
+        <li><span class="parameter">Color</span>
+            <span class="types"><span class="type">Color3</span></span>
+         The color of the light.
          (<em>optional</em>)
         </li>
-        <li><span class="parameter">boolean</span>
-         Shadows Whether the light should cast shadows.
+        <li><span class="parameter">Shadows</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Whether the light should cast shadows.
          (<em>optional</em>)
         </li>
-        <li><span class="parameter">number</span>
-         Angle The angle of the light.
+        <li><span class="parameter">Face</span>
+            <span class="types"><span class="type">Enum.NormalId</span></span>
+         The face of the part to which the light is applied.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Angle</span>
+            <span class="types"><span class="type">number</span></span>
+         The angle of the light.
          (<em>optional</em>)
         </li>
     </ul>
@@ -1760,6 +2144,333 @@
 
 
 </dd>
+    <dt>
+    <a name = "DecorationCreation"></a>
+    <strong>DecorationCreation</strong>
+    </dt>
+    <dd>
+    F3X:CreateDecorations()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part
+        </li>
+        <li><span class="parameter">DecorationType</span>
+            <span class="types"><span class="type">"Smoke"</span>, <span class="type">"Fire"</span> or <span class="type">"Sparkles"</span></span>
+         The type of decoration to be created.
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:CreateDecorations">CreateDecorations</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "DecorationProperties"></a>
+    <strong>DecorationProperties</strong>
+    </dt>
+    <dd>
+    F3X:SetDecorations()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part to which the decoration belongs.
+        </li>
+        <li><span class="parameter">DecorationType</span>
+            <span class="types"><span class="type">"Smoke"</span>, <span class="type">"Fire"</span> or <span class="type">"Sparkles"</span></span>
+         The type of decoration to be set.
+        </li>
+        <li><span class="parameter">Color</span>
+            <span class="types"><span class="type">Color3</span></span>
+         The color of the decoration.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Opacity</span>
+            <span class="types"><span class="type">number</span></span>
+         The opacity of the decoration.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">RiseVelocity</span>
+            <span class="types"><span class="type">number</span></span>
+         The speed of decoration particles move during their lifetime.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Size</span>
+            <span class="types"><span class="type">number</span></span>
+         The size of the decoration.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">SecondaryColor</span>
+            <span class="types"><span class="type">Color3</span></span>
+         The secondary color of the fire decoration.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">SparkleColor</span>
+            <span class="types"><span class="type">Color3</span></span>
+         The sparkle color of the decoration.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:SetDecorations">SetDecorations</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MeshProperties"></a>
+    <strong>MeshProperties</strong>
+    </dt>
+    <dd>
+    F3X:SetMeshes()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part to which the mesh belongs.
+        </li>
+        <li><span class="parameter">VertexColor</span>
+            <span class="types"><span class="type">Vector3</span></span>
+         The vertex color of the mesh.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">MeshType</span>
+            <span class="types"><span class="type">Enum.MeshType</span></span>
+         The mesh type of mesh.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Scale</span>
+            <span class="types"><span class="type">Vector3</span></span>
+         The scale of the mesh.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Offset</span>
+            <span class="types"><span class="type">Vector3</span></span>
+         The offset of the mesh.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">MeshId</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         The asset ID of the mesh.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">TextureId</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         The asset ID of the mesh texture.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:SetMeshes">SetMeshes</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "TextureCreation"></a>
+    <strong>TextureCreation</strong>
+    </dt>
+    <dd>
+    F3X:CreateTextures()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part to which the texture belongs.
+        </li>
+        <li><span class="parameter">Face</span>
+            <span class="types"><span class="type">Enum.NormalId</span></span>
+         The face of the part where the texture will be applied.
+        </li>
+        <li><span class="parameter">TextureType</span>
+            <span class="types"><span class="type">"Texture"</span> or <span class="type">"Decal"</span></span>
+         The type of the texture.
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:CreateTextures">CreateTextures</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "TextureProperties"></a>
+    <strong>TextureProperties</strong>
+    </dt>
+    <dd>
+    F3X:SetTextures()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part to which the texture belongs.
+        </li>
+        <li><span class="parameter">Face</span>
+            <span class="types"><span class="type">Enum.NormalId</span></span>
+         The face of the part where the texture is.
+        </li>
+        <li><span class="parameter">TextureType</span>
+            <span class="types"><span class="type">"Texture"</span> or <span class="type">"Decal"</span></span>
+         The type of the texture.
+        </li>
+        <li><span class="parameter">Texture</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         The asset ID of the texture.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Transparency</span>
+            <span class="types"><span class="type">number</span></span>
+         The transparency of the texture.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">StudsPerTileU</span>
+            <span class="types"><span class="type">number</span></span>
+         Horizonal size of a texture tile in studs
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">StudsPerTileV</span>
+            <span class="types"><span class="type">number</span></span>
+         Vertical size of a texture tile in studs
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:SetTextures">SetTextures</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "AnchorProperties"></a>
+    <strong>AnchorProperties</strong>
+    </dt>
+    <dd>
+    F3X:SetAnchors()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part to anchor or unanchor.
+        </li>
+        <li><span class="parameter">Anchored</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Whether the part is anchored.
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:SetAnchors">SetAnchors</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "CollisionProperties"></a>
+    <strong>CollisionProperties</strong>
+    </dt>
+    <dd>
+    F3X:SetCollisions()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part
+        </li>
+        <li><span class="parameter">CanCollide</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Whether the part can collide with other parts.
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:SetCollisions">SetCollisions</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "MaterialProperties"></a>
+    <strong>MaterialProperties</strong>
+    </dt>
+    <dd>
+    F3X:SetMaterials()
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">Part</span>
+            <span class="types"><span class="type">Instance</span></span>
+         The part
+        </li>
+        <li><span class="parameter">Material</span>
+            <span class="types"><span class="type">Enum.Material</span></span>
+         The material of the part.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Transparency</span>
+            <span class="types"><span class="type">number</span></span>
+         The transparency of the part.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">Reflectance</span>
+            <span class="types"><span class="type">number</span></span>
+         The reflectance of the part.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/f3x-wrapper.html#F3X:SetMaterials">SetMaterials</a>
+    </ul>
+
+
+</dd>
 </dl>
 
 
@@ -1767,7 +2478,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2024-07-06 03:47:02 </i>
+<i style="float:right;">Last updated 2024-07-06 11:08:18 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
