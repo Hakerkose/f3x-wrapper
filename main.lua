@@ -170,8 +170,15 @@ function F3X:UndoRemove(Object)
     return self:UndoRemovedParts({Object})
 end
 
+--- F3X:MoveParts(), F3X:RotateParts()
+-- @table PartMovement
+-- @tfield Instance Part Part to move
+-- @tfield CFrame CFrame New CFrame
+-- @see MoveParts
+-- @see RotateParts
+
 --- Moves the specified parts to the given CFrame.
--- @tparam {{Part:BasePart,CFrame:CFrame},...} Changes Parts and their new CFrames
+-- @tparam {PartMovement,...} Changes Parts and their new CFrames
 -- @treturn nil
 function F3X:MoveParts(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -195,8 +202,15 @@ function F3X:MoveTo(Part, Position)
     return self:MoveParts({{["Part"] = Part, ["CFrame"] = CFrame.new(Position)}})
 end
 
+--- F3X:ResizeParts()
+-- @table PartResize
+-- @tfield Instance Part Part to resize
+-- @tfield CFrame CFrame New CFrame
+-- @tfield Vector3 Size New Size
+-- @see MoveParts
+
 --- Resizes the specified parts.
--- @tparam {{Part:BasePart,CFrame:CFrame,Size:Vector3},...} Changes Parts and their new sizes and CFrames
+-- @tparam {PartResize,...} Changes Parts and their new sizes and CFrames
 -- @treturn nil
 function F3X:ResizeParts(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -210,11 +224,11 @@ end
 -- @tparam[opt=Part.CFrame] CFrame cf new CFrame
 -- @treturn nil
 function F3X:Resize(Part, Size, cf)
-    return self:ResizeParts({{["Part"] = Part, ["Size"] = Size, ["CFrame"] = cf}})
+    return self:ResizeParts({{["Part"] = Part, ["Size"] = Size, ["CFrame"] = cf or Part.CFrame}})
 end
 
 --- Rotates the specified parts.
--- @tparam {{Part:BasePart,CFrame:CFrame},...} Changes Parts and their new CFrames
+-- @tparam {PartMovement,...} Changes Parts and their new CFrames
 -- @treturn nil
 function F3X:RotateParts(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -247,8 +261,14 @@ function F3X:SetColor(Part, Color)
     return self:SetColors({{["Part"] = Part, ["Color"] = Color}})
 end
 
+--- F3X:SetPartsSurfaces()
+-- @table SurfaceProperties
+-- @tfield Instance Part The part
+-- @tfield {["Top"|"Front"|"Bottom"|"Right"|"Left"|"Back"]:Enum.SurfaceType},...} Surfaces The face and type of surface to be set.
+-- @see SetPartsSurfaces
+
 --- Sets the surfaces of the specified parts.
--- @tparam {{Part:BasePart,Surfaces:{["Top"|"Front"|"Bottom"|"Right"|"Left"|"Back"]:Enum.SurfaceType}},...} Changes Parts and their new surfaces
+-- @tparam {SurfaceProperties,...} Changes Parts and their new surfaces
 -- @treturn nil
 function F3X:SetPartsSurfaces(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -273,8 +293,14 @@ function F3X:SetSurface(Part, Face, SurfaceType)
     return self:SetSurfaces(Part, {[Face] = SurfaceType})
 end
 
+--- F3X:CreateLights()
+-- @table LightCreation
+-- @tfield Instance Part The part
+-- @tfield "SpotLight"|"PointLight"|"SurfaceLight" LightType The type of light to be created.
+-- @see CreateLights
+
 --- Creates lights on the specified parts.
--- @tparam {{Part:BasePart,LightType:"SpotLight"|"PointLight"|"SurfaceLight"},...} Changes Parts and their light types
+-- @tparam {LightCreation,...} Changes Parts and their light types
 -- @treturn {SpotLight|PointLight|SurfaceLight,...} Created lights
 function F3X:CreateLights(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -292,14 +318,14 @@ end
 
 --- F3X:SetLights()
 -- @table LightProperties
--- @field Instance Part The part to which the light belongs.
--- @field "SpotLight"|"PointLight"|"SurfaceLight" LightType The type of light to be set.
--- @field[opt] number Range The range of the light.
--- @field[opt] number Brightness The brightness of the light.
--- @field[opt] Color3 Color The color of the light.
--- @field[opt] boolean Shadows Whether the light should cast shadows.
--- @field[opt] Enum.NormalId Face The face of the part to which the light is applied.
--- @field[opt] number Angle The angle of the light.
+-- @tfield Instance Part The part to which the light belongs.
+-- @tfield "SpotLight"|"PointLight"|"SurfaceLight" LightType The type of light to be set.
+-- @tfield[opt] number Range The range of the light.
+-- @tfield[opt] number Brightness The brightness of the light.
+-- @tfield[opt] Color3 Color The color of the light.
+-- @tfield[opt] boolean Shadows Whether the light should cast shadows.
+-- @tfield[opt] Enum.NormalId Face The face of the part to which the light is applied.
+-- @tfield[opt] number Angle The angle of the light.
 -- @see SetLights
 
 --- Sets the properties of the specified lights.
@@ -311,17 +337,35 @@ function F3X:SetLights(Changes)
     return self._endpoint:InvokeServer("SetLight", Changes)
 end
 
+--- F3X:CreateDecorations()
+-- @table DecorationCreation
+-- @tfield Instance Part The part
+-- @tfield "Smoke"|"Fire"|"Sparkles" DecorationType The type of decoration to be created.
+-- @see CreateDecorations
+
 --- Creates decorations on the specified parts.
--- @tparam table Changes Parts and their decoration types
--- @treturn table Created decorations
+-- @tparam {DecorationCreation,...} Changes Parts and their decoration types
+-- @treturn {Smoke|Fire|Sparkles,...} Created decorations
 function F3X:CreateDecorations(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
     return self._endpoint:InvokeServer("CreateDecoration", Changes)
 end
 
+--- F3X:SetDecorations()
+-- @table DecorationProperties
+-- @tfield Instance Part The part to which the decoration belongs.
+-- @tfield "Smoke"|"Fire"|"Sparkles" DecorationType The type of decoration to be set.
+-- @tfield[opt] Color3 Color The color of the decoration.
+-- @tfield[opt] number Opacity The opacity of the decoration.
+-- @tfield[opt] number RiseVelocity The speed of decoration particles move during their lifetime.
+-- @tfield[opt] number Size The size of the decoration.
+-- @tfield[opt] Color3 SecondaryColor The secondary color of the fire decoration.
+-- @tfield[opt] Color3 SparkleColor The sparkle color of the decoration.
+-- @see SetDecorations
+
 --- Sets the properties of the specified decorations.
--- @tparam table Changes Decorations and their new properties
+-- @tparam {DecorationProperties,...} Changes Decorations and their new properties
 -- @treturn nil
 function F3X:SetDecorations(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -329,17 +373,43 @@ function F3X:SetDecorations(Changes)
     return self._endpoint:InvokeServer("SetDecoration", Changes)
 end
 
---- Creates meshes on the specified parts.
--- @tparam table Changes Parts to create meshes on
--- @treturn table Created meshes
+--- (deprecated) Creates meshes on the specified parts.
+-- @warning This function is deprecated. Use CreateMeshesOnParts instead.
+-- @tparam {{["Part"]:BasePart},...} Objects Parts to create meshes on
+-- @treturn {SpecialMesh,...} Created meshes
+-- @see CreateMeshesOnParts
 function F3X:CreateMeshes(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
     return self._endpoint:InvokeServer("CreateMesh", Changes)
 end
 
+--- Creates meshes on the specified parts.
+-- @tparam {BasePart,...} Objects Parts to create meshes on
+-- @treturn {SpecialMesh,...} Created meshes
+function F3X:CreateMeshesOnParts(Objects)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    local Changes = {}
+    for _, v in ipairs(Objects) do
+        table.insert(Changes, {["Part"] = v})
+    end
+    return self._endpoint:InvokeServer("CreateMesh", Changes)
+end
+
+--- F3X:SetMeshes()
+-- @table MeshProperties
+-- @tfield Instance Part The part to which the mesh belongs.
+-- @tfield[opt] Vector3 VertexColor The vertex color of the mesh.
+-- @tfield[opt] Enum.MeshType MeshType The mesh type of mesh.
+-- @tfield[opt] Vector3 Scale The scale of the mesh.
+-- @tfield[opt] Vector3 Offset The offset of the mesh.
+-- @tfield[opt] string MeshId The asset ID of the mesh.
+-- @tfield[opt] string TextureId The asset ID of the mesh texture.
+-- @see SetMeshes
+
 --- Sets the properties of the specified meshes.
--- @tparam table Changes Meshes and their new properties
+-- @tparam {MeshProperties,...} Changes Meshes and their new properties
 -- @treturn nil
 function F3X:SetMeshes(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -347,17 +417,35 @@ function F3X:SetMeshes(Changes)
     return self._endpoint:InvokeServer("SetMesh", Changes)
 end
 
+--- F3X:CreateTextures()
+-- @table TextureCreation
+-- @tfield Instance Part The part to which the texture belongs.
+-- @tfield Enum.NormalId Face The face of the part where the texture will be applied.
+-- @tfield "Texture"|"Decal" TextureType The type of the texture.
+-- @see CreateTextures
+
 --- Creates textures on the specified parts.
--- @tparam table Changes Parts and their texture types
--- @treturn table Created textures
+-- @tparam {TextureCreation,...} Changes Parts and their texture types
+-- @treturn {Texture|Decal,...} Created textures
 function F3X:CreateTextures(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
     return self._endpoint:InvokeServer("CreateTexture", Changes)
 end
 
+--- F3X:SetTextures()
+-- @table TextureProperties
+-- @tfield Instance Part The part to which the texture belongs.
+-- @tfield Enum.NormalId Face The face of the part where the texture is.
+-- @tfield "Texture"|"Decal" TextureType The type of the texture.
+-- @tfield[opt] string Texture The asset ID of the texture.
+-- @tfield[opt] number Transparency The transparency of the texture.
+-- @tfield[opt] number StudsPerTileU Horizonal size of a texture tile in studs
+-- @tfield[opt] number StudsPerTileV Vertical size of a texture tile in studs
+-- @see SetTextures
+
 --- Sets the properties of the specified textures.
--- @tparam table Changes Textures and their new properties
+-- @tparam {TextureProperties,...} Changes Textures and their new properties
 -- @treturn nil
 function F3X:SetTextures(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -365,8 +453,14 @@ function F3X:SetTextures(Changes)
     return self._endpoint:InvokeServer("SetTexture", Changes)
 end
 
+--- F3X:SetAnchors()
+-- @table AnchorProperties
+-- @tfield Instance Part The part to anchor or unanchor.
+-- @tfield boolean Anchored Whether the part is anchored.
+-- @see SetAnchors
+
 --- Sets the anchored state of the specified parts.
--- @tparam table Changes Parts and their anchored states
+-- @tparam {AnchorProperties,...} Changes Parts and their anchored states
 -- @treturn nil
 function F3X:SetAnchors(Changes)
     assert(self._reinit, errors.notIntialized)
@@ -388,28 +482,74 @@ function F3X:Unanchor(Part)
     return self:SetAnchors({{["Part"] = Part, ["Anchored"] = false}})
 end
 
+--- F3X:SetCollisions()
+-- @table CollisionProperties
+-- @tfield Instance Part The part
+-- @tfield boolean CanCollide Whether the part can collide with other parts.
+-- @see SetCollisions
+
 --- Sets the collision state of the specified parts.
--- @tparam table Changes Parts and their collision states
+-- @tparam {CollisionProperties,...} Changes Parts and their collision states
 -- @treturn nil
-function F3X:SetCollision(Changes)
+function F3X:SetCollisions(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
     return self._endpoint:InvokeServer("SetCollision", Changes)
 end
 
---- Sets the material properties of the specified parts.
--- @tparam table Changes Parts and their new material properties
+--- Sets the CanCollide property of single part.
+-- @tparam BasePart Part The part
+-- @tparam boolean CanCollide Whether the part can collide with other parts.
 -- @treturn nil
-function F3X:SetMaterial(Changes)
+function F3X:SetCollision(Part, CanCollide)
+    return self:SetCollisions({{["Part"] = Part, ["CanCollide"] = CanCollide}})
+end
+
+--- F3X:SetMaterials()
+-- @table MaterialProperties
+-- @tfield Instance Part The part
+-- @tfield[opt] Enum.Material Material The material of the part.
+-- @tfield[opt] number Transparency The transparency of the part.
+-- @tfield[opt] number Reflectance The reflectance of the part.
+-- @see SetMaterials
+
+--- Sets the material properties of the specified parts.
+-- @tparam {MaterialProperties,...} Changes Parts and their new material properties
+-- @treturn nil
+function F3X:SetMaterials(Changes)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
     return self._endpoint:InvokeServer("SetMaterial", Changes)
 end
 
+--- Sets the material of single part.
+-- @tparam BasePart Part The part
+-- @tparam Enum.Material Material The material of the part.
+-- @treturn nil
+function F3X:SetMaterial(Part, Material)
+    return self:SetMaterials({{["Part"] = Part, ["Material"] = Material}})
+end
+
+--- Sets the transparency of single part.
+-- @tparam BasePart Part The part
+-- @tparam number Transparency The transparency of the part.
+-- @treturn nil
+function F3X:SetTransparency(Part, Transparency)
+    return self:SetMaterials({{["Part"] = Part, ["Transparency"] = Transparency}})
+end
+
+--- Sets the reflectance of single part.
+-- @tparam BasePart Part The part
+-- @tparam number Reflectance The reflectance of the part.
+-- @treturn nil
+function F3X:SetReflectance(Part, Reflectance)
+    return self:SetMaterials({{["Part"] = Part, ["Reflectance"] = Reflectance}})
+end
+
 --- Creates welds between the specified parts and the target part.
--- @tparam table Parts Parts to weld
+-- @tparam {BasePart,...} Parts Parts to weld
 -- @tparam BasePart TargetPart Target part
--- @treturn table Created welds
+-- @treturn {Weld,...} Created welds
 function F3X:CreateWelds(Parts, TargetPart)
     assert(self._reinit, errors.notIntialized)
     if self._endpoint.Parent == nil then self._reinit() end
@@ -417,7 +557,7 @@ function F3X:CreateWelds(Parts, TargetPart)
 end
 
 --- Removes the specified welds.
--- @tparam table Welds Welds to remove
+-- @tparam {Weld,...} Welds Welds to remove
 -- @treturn number Number of removed welds
 function F3X:RemoveWelds(Welds)
     assert(self._reinit, errors.notIntialized)
@@ -426,7 +566,7 @@ function F3X:RemoveWelds(Welds)
 end
 
 --- Undoes the removal of the specified welds.
--- @tparam table Welds Welds to restore
+-- @tparam {Weld,...} Welds Welds to restore
 -- @treturn nil
 function F3X:UndoRemovedWelds(Welds)
     assert(self._reinit, errors.notIntialized)
@@ -435,7 +575,7 @@ function F3X:UndoRemovedWelds(Welds)
 end
 
 --- Exports the specified parts.
--- @tparam table Parts Parts to export
+-- @tparam {BasePart,...} Parts Parts to export
 -- @treturn string|nil Exported data
 function F3X:Export(Parts)
     assert(self._reinit, errors.notIntialized)
@@ -486,6 +626,14 @@ function F3X:SetLocked(Items, Locked)
     assert(self.reinit, errors.notIntialized)
     if self.endpoint.Parent == nil then self._reinit() end
     return self.endpoint:InvokeServer("SetLocked", Items, Locked)
+end
+
+--- Gets the currently selected parts.
+-- @treturn {Instance,...} A table containing the selected parts
+function F3X:GetSelectedParts()
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+    return require(self._core).Selection.Parts
 end
 
 _G.F3X_wrapper_module = F3X
