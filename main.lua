@@ -24,6 +24,9 @@ local errors = {
 -- @tparam function init Initialization function
 -- @treturn table New F3X instance
 function F3X.new(init)
+    if _G.F3X_instance and not init then
+        return _G.F3X_instance
+    end
     init = init or _G.F3X__init_func or function()
         game.Players:Chat(':f3x')
     end
@@ -46,6 +49,7 @@ function F3X.new(init)
     }, F3X)
     self._reinit()
 
+    _G.F3X_instance = self
     return self
 end
 
