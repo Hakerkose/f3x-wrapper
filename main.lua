@@ -10,46 +10,34 @@ if _G.F3X_wrapper_module then
 end
 
 local F3X = {}
-F3X.__index = F3X
 
 local plr = game:GetService("Players").LocalPlayer
 
---- Creates a new instance of the F3X module and initializes it.
--- @tparam function init Initialization function
--- @treturn table New F3X instance
+-- deprecated
 function F3X.new(init)
-    if _G.F3X_instance and not init then
-        return _G.F3X_instance
-    end
-    init = init or _G.F3X__init_func or function()
-        game.Players:Chat(':f3x')
-        return plr.Backpack:WaitForChild('Building Tools', 1)
-    end
-    local self
-    self = setmetatable({
-        _reinit = function()
-            local Tool = init() or plr.Backpack:WaitForChild('Building Tools', 1)
-            local Core = Tool and Tool:WaitForChild('Core', 1)
-            local SyncAPI = Tool and Tool:WaitForChild('SyncAPI', 1)
-            local ServerEndpoint = SyncAPI and SyncAPI:WaitForChild('ServerEndpoint', 1)
-            assert(Core, "Cannot find F3X core.")
-            assert(ServerEndpoint, "Cannot find F3X endpoint.")
-            self._core = Core
-            self._endpoint = ServerEndpoint
-            --self._endpoint:InvokeServer("SetParent", {Folder}, plr)
-        end,
-        _core = nil,
-        _endpoint = nil,
-    }, F3X)
-    self._reinit()
-
-    _G.F3X_instance = self
-    return self
+    if init then _G.F3X__init_func = init end
+    return F3X
 end
 
 function EnsureInitialized(self)
-    assert(self._reinit, "Not Initialized")
-    if self._endpoint.Parent == nil then self._reinit() end
+    if self._endpoint and self._endpoint.Parent then return end
+    local init = _G.F3X__init_func or function()
+        game.Players:Chat(':f3x')
+        return plr.Backpack:WaitForChild('Building Tools', 1)
+    end
+    local Tool = init() or plr.Backpack:WaitForChild('Building Tools', 1)
+    assert(Tool, "Cannot find F3X tool")
+
+    local Core = Tool:WaitForChild('Core', 1)
+    assert(Core, "Cannot find F3X core")
+
+    local SyncAPI = Tool:WaitForChild('SyncAPI', 1)
+    assert(SyncAPI, "Cannot find F3X Sync API")
+
+    local ServerEndpoint = SyncAPI:WaitForChild('ServerEndpoint', 1)
+    assert(ServerEndpoint, "Cannot find F3X server endpoint")
+    self._core = Core
+    self._endpoint = ServerEndpoint
 end
 
 --- Recolors the handle of a part.
