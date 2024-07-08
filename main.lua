@@ -53,12 +53,16 @@ function F3X.new(init)
     return self
 end
 
+function EnsureInitialized(self)
+    assert(self._reinit, errors.notIntialized)
+    if self._endpoint.Parent == nil then self._reinit() end
+end
+
 --- Recolors the handle of a part.
 -- @tparam BrickColor NewColor New color for the handle
 -- @treturn nil
 function F3X:RecolorHandle(NewColor)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("RecolorHandle", NewColor)
 end
 
@@ -67,8 +71,7 @@ end
 -- @tparam Instance Parent Parent instance
 -- @treturn {Instance,...} Cloned parts
 function F3X:CloneParts(Items, Parent)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("Clone", Items, Parent)
 end
 
@@ -86,8 +89,7 @@ end
 -- @tparam[opt=workspace] Instance Parent Parent instance
 -- @treturn BasePart Created part
 function F3X:CreatePart(PartType, Position, Parent)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     if PartType == 'VehicleSeat' then
         PartType = 'Vehicle Seat'
     end
@@ -100,8 +102,7 @@ end
 -- @tparam {Instance,...} Items Items to group
 -- @treturn Model|Folder Created group
 function F3X:CreateGroup(Type, Parent, Items)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("CreateGroup", Type, Parent, Items)
 end
 
@@ -109,8 +110,7 @@ end
 -- @tparam {Instance,...} Groups Groups to ungroup
 -- @treturn {Instance,...} Ungrouped items
 function F3X:Ungroup(Groups)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("Ungroup", Groups)
 end
 
@@ -119,8 +119,7 @@ end
 -- @tparam Instance Parent New parent instance
 -- @treturn nil
 function F3X:SetParent(Items, Parent)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetParent", Items, Parent)
 end
 
@@ -129,8 +128,7 @@ end
 -- @tparam string Name New name
 -- @treturn nil
 function F3X:SetNames(Items, Name)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetName", Items, Name)
 end
 
@@ -146,8 +144,7 @@ end
 -- @tparam {Instance,...} Objects Parts to remove
 -- @treturn nil
 function F3X:RemoveParts(Objects)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("Remove", Objects)
 end
 
@@ -162,8 +159,7 @@ end
 -- @tparam {Instance,...} Objects Parts to restore
 -- @treturn nil
 function F3X:UndoRemovedParts(Objects)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("UndoRemove", Objects)
 end
 
@@ -185,8 +181,7 @@ end
 -- @tparam {PartMovement,...} Changes Parts and their new CFrames
 -- @treturn nil
 function F3X:MoveParts(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SyncMove", Changes)
 end
 
@@ -217,8 +212,7 @@ end
 -- @tparam {PartResize,...} Changes Parts and their new sizes and CFrames
 -- @treturn nil
 function F3X:ResizeParts(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("Resize", Changes)
 end
 
@@ -235,8 +229,7 @@ end
 -- @tparam {PartMovement,...} Changes Parts and their new CFrames
 -- @treturn nil
 function F3X:RotateParts(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("Rotate", Changes)
 end
 
@@ -252,8 +245,7 @@ end
 -- @tparam {{Part:BasePart,Color:Color3},...} Changes Parts and their new colors
 -- @treturn nil
 function F3X:SetColors(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetColor", Changes)
 end
 
@@ -275,8 +267,7 @@ end
 -- @tparam {SurfaceProperties,...} Changes Parts and their new surfaces
 -- @treturn nil
 function F3X:SetPartsSurfaces(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetSurface", Changes)
 end
 
@@ -307,8 +298,7 @@ end
 -- @tparam {LightCreation,...} Changes Parts and their light types
 -- @treturn {SpotLight|PointLight|SurfaceLight,...} Created lights
 function F3X:CreateLights(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("CreateLight", Changes)
 end
 
@@ -336,8 +326,7 @@ end
 -- @tparam {LightProperties,...} Changes A table containing information about the lights to be set.
 -- @treturn nil
 function F3X:SetLights(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetLight", Changes)
 end
 
@@ -351,8 +340,7 @@ end
 -- @tparam {DecorationCreation,...} Changes Parts and their decoration types
 -- @treturn {Smoke|Fire|Sparkles,...} Created decorations
 function F3X:CreateDecorations(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("CreateDecoration", Changes)
 end
 
@@ -372,8 +360,7 @@ end
 -- @tparam {DecorationProperties,...} Changes Decorations and their new properties
 -- @treturn nil
 function F3X:SetDecorations(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetDecoration", Changes)
 end
 
@@ -383,8 +370,7 @@ end
 -- @treturn {SpecialMesh,...} Created meshes
 -- @see CreateMeshesOnParts
 function F3X:CreateMeshes(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("CreateMesh", Changes)
 end
 
@@ -392,8 +378,7 @@ end
 -- @tparam {BasePart,...} Objects Parts to create meshes on
 -- @treturn {SpecialMesh,...} Created meshes
 function F3X:CreateMeshesOnParts(Objects)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     local Changes = {}
     for _, v in ipairs(Objects) do
         table.insert(Changes, {["Part"] = v})
@@ -416,8 +401,7 @@ end
 -- @tparam {MeshProperties,...} Changes Meshes and their new properties
 -- @treturn nil
 function F3X:SetMeshes(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetMesh", Changes)
 end
 
@@ -432,8 +416,7 @@ end
 -- @tparam {TextureCreation,...} Changes Parts and their texture types
 -- @treturn {Texture|Decal,...} Created textures
 function F3X:CreateTextures(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("CreateTexture", Changes)
 end
 
@@ -452,8 +435,7 @@ end
 -- @tparam {TextureProperties,...} Changes Textures and their new properties
 -- @treturn nil
 function F3X:SetTextures(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetTexture", Changes)
 end
 
@@ -467,8 +449,7 @@ end
 -- @tparam {AnchorProperties,...} Changes Parts and their anchored states
 -- @treturn nil
 function F3X:SetAnchors(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetAnchor", Changes)
 end
 
@@ -496,8 +477,7 @@ end
 -- @tparam {CollisionProperties,...} Changes Parts and their collision states
 -- @treturn nil
 function F3X:SetCollisions(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetCollision", Changes)
 end
 
@@ -521,8 +501,7 @@ end
 -- @tparam {MaterialProperties,...} Changes Parts and their new material properties
 -- @treturn nil
 function F3X:SetMaterials(Changes)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("SetMaterial", Changes)
 end
 
@@ -555,8 +534,7 @@ end
 -- @tparam BasePart TargetPart Target part
 -- @treturn {Weld,...} Created welds
 function F3X:CreateWelds(Parts, TargetPart)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("CreateWeld", Parts, TargetPart)
 end
 
@@ -564,8 +542,7 @@ end
 -- @tparam {Weld,...} Welds Welds to remove
 -- @treturn number Number of removed welds
 function F3X:RemoveWelds(Welds)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("RemoveWeld", Welds)
 end
 
@@ -573,8 +550,7 @@ end
 -- @tparam {Weld,...} Welds Welds to restore
 -- @treturn nil
 function F3X:UndoRemovedWelds(Welds)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("UndoRemoveWeld", Welds)
 end
 
@@ -582,16 +558,14 @@ end
 -- @tparam {BasePart,...} Parts Parts to export
 -- @treturn string|nil Exported data
 function F3X:Export(Parts)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("Export", Parts)
 end
 
 --- Checks if the HTTP service is enabled.
 -- @treturn boolean True if enabled, false otherwise
 function F3X:IsHttpServiceEnabled()
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("IsHttpServiceEnabled")
 end
 
@@ -599,8 +573,7 @@ end
 -- @tparam number AssetId Asset ID
 -- @treturn any Extracted mesh
 function F3X:ExtractMeshFromAsset(AssetId)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("ExtractMeshFromAsset", AssetId)
 end
 
@@ -608,8 +581,7 @@ end
 -- @tparam number DecalAssetId Decal asset ID
 -- @treturn string Extracted image
 function F3X:ExtractImageFromDecal(DecalAssetId)
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self._endpoint:InvokeServer("ExtractImageFromDecal", DecalAssetId)
 end
 
@@ -635,8 +607,7 @@ end
 --- Gets the currently selected parts.
 -- @treturn {Instance,...} A table containing the selected parts
 function F3X:GetSelectedParts()
-    assert(self._reinit, errors.notIntialized)
-    if self._endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return require(self._core).Selection.Parts
 end
 
