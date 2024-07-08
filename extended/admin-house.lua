@@ -7,11 +7,13 @@
 
 
 _G.F3X__init_func = function()
-   if _G.F3X__init_debounce then return end
-   _G.F3X__init_debounce = true
-   game.Players:Chat('/e :f3x')
-   game:GetService('Players').LocalPlayer.Backpack:WaitForChild('Folder', 1)
+   if not _G.F3X__init_debounce then
+      _G.F3X__init_debounce = true
+      game.Players:Chat('/e :f3x')
+   end
+   local folder = game:GetService('Players').LocalPlayer.Backpack:WaitForChild('Folder', 1)
    _G.F3X__init_debounce = false
+   return folder
 end
 
 local F3X = _G.F3X_wrapper_module or loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/main.lua", true))()

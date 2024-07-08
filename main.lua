@@ -29,14 +29,14 @@ function F3X.new(init)
     end
     init = init or _G.F3X__init_func or function()
         game.Players:Chat(':f3x')
+        return plr.Backpack:WaitForChild('Building Tools', 1)
     end
     local self
     self = setmetatable({
         _reinit = function()
-            init()
-            local Folder = plr.Backpack:WaitForChild('Folder', 1) or plr.Backpack:WaitForChild('Building Tools', 1)
-            local Core = Folder and Folder:WaitForChild('Core', 1)
-            local SyncAPI = Folder and Folder:WaitForChild('SyncAPI', 1)
+            local Tool = init()
+            local Core = Tool and Tool:WaitForChild('Core', 1)
+            local SyncAPI = Tool and Tool:WaitForChild('SyncAPI', 1)
             local ServerEndpoint = SyncAPI and SyncAPI:WaitForChild('ServerEndpoint', 1)
             assert(Core, errors.coreNotFound)
             assert(ServerEndpoint, errors.endpointNotFound)
