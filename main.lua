@@ -14,12 +14,6 @@ F3X.__index = F3X
 
 local plr = game:GetService("Players").LocalPlayer
 
-local errors = {
-    endpointNotFound = "Cannot find F3X endpoint.",
-    coreNotFound = "Cannot find F3X core.",
-    notIntialized = "Not Initialized",
-}
-
 --- Creates a new instance of the F3X module and initializes it.
 -- @tparam function init Initialization function
 -- @treturn table New F3X instance
@@ -34,12 +28,12 @@ function F3X.new(init)
     local self
     self = setmetatable({
         _reinit = function()
-            local Tool = init()
+            local Tool = init() or plr.Backpack:WaitForChild('Building Tools', 1)
             local Core = Tool and Tool:WaitForChild('Core', 1)
             local SyncAPI = Tool and Tool:WaitForChild('SyncAPI', 1)
             local ServerEndpoint = SyncAPI and SyncAPI:WaitForChild('ServerEndpoint', 1)
-            assert(Core, errors.coreNotFound)
-            assert(ServerEndpoint, errors.endpointNotFound)
+            assert(Core, "Cannot find F3X core.")
+            assert(ServerEndpoint, "Cannot find F3X endpoint.")
             self._core = Core
             self._endpoint = ServerEndpoint
             --self._endpoint:InvokeServer("SetParent", {Folder}, plr)
@@ -54,7 +48,7 @@ function F3X.new(init)
 end
 
 function EnsureInitialized(self)
-    assert(self._reinit, errors.notIntialized)
+    assert(self._reinit, "Not Initialized")
     if self._endpoint.Parent == nil then self._reinit() end
 end
 
@@ -589,8 +583,7 @@ end
 -- @tparam boolean Enabled True to enable, false to disable
 -- @treturn nil
 function F3X:SetMouseLockEnabled(Enabled)
-    assert(self._reinit, errors.notIntialized)
-    if self.endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self.endpoint:InvokeServer("SetMouseLockEnabled", Enabled)
 end
 
@@ -599,8 +592,7 @@ end
 -- @tparam table|boolean Locked Locked state
 -- @treturn nil
 function F3X:SetLocked(Items, Locked)
-    assert(self.reinit, errors.notIntialized)
-    if self.endpoint.Parent == nil then self._reinit() end
+    EnsureInitialized(self)
     return self.endpoint:InvokeServer("SetLocked", Items, Locked)
 end
 
