@@ -11,7 +11,7 @@ _G.F3X__init_func = function()
       _G.F3X__init_debounce = true
       game.Players:Chat('/e :f3x')
    end
-   local folder = game:GetService('Players').LocalPlayer.Backpack:WaitForChild('Folder', 1)
+   local folder = game:GetService('Players').LocalPlayer.Backpack:WaitForChild('Folder')
    _G.F3X__init_debounce = false
    return folder
 end
