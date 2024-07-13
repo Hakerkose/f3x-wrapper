@@ -20,7 +20,7 @@ function F3X.new(init)
 end
 
 function EnsureInitialized(self)
-    if self._endpoint and self._endpoint.Parent then return end
+    if self._endpoint and self._endpoint.Parent.Parent then return end
     local init = _G.F3X__init_func or function()
         game.Players:Chat(':f3x')
         return plr.Backpack:WaitForChild('Building Tools', 1)
