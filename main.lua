@@ -20,7 +20,7 @@ function F3X.new(init)
 end
 
 function EnsureInitialized(self)
-    if self._endpoint and self._endpoint.Parent.Parent then return end
+    if self._endpoint and self._endpoint:FindFirstAncestorOfClass("Player") then return end
     local init = _G.F3X__init_func or function()
         game.Players:Chat(':f3x')
         return plr.Backpack:WaitForChild('Building Tools', 1)
@@ -195,7 +195,7 @@ end
 -- @treturn nil
 function F3X:ResizeParts(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("Resize", Changes)
+    return self._endpoint:InvokeServer("SyncResize", Changes)
 end
 
 --- Resizes a single part.
@@ -432,7 +432,7 @@ end
 -- @treturn nil
 function F3X:SetAnchors(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetAnchor", Changes)
+    return self._endpoint:InvokeServer("SyncAnchor", Changes)
 end
 
 --- Anchors a single part.
