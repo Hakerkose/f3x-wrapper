@@ -228,7 +228,7 @@ end
 -- @treturn nil
 function F3X:SetColors(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetColor", Changes)
+    return self._endpoint:InvokeServer("SyncColor", Changes)
 end
 
 --- Sets the color of a single part.
@@ -250,7 +250,7 @@ end
 -- @treturn nil
 function F3X:SetPartsSurfaces(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetSurface", Changes)
+    return self._endpoint:InvokeServer("SyncSurface", Changes)
 end
 
 --- Sets the surfaces of a single part.
@@ -309,7 +309,7 @@ end
 -- @treturn nil
 function F3X:SetLights(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetLight", Changes)
+    return self._endpoint:InvokeServer("SyncLighting", Changes)
 end
 
 --- F3X:CreateDecorations()
@@ -343,7 +343,7 @@ end
 -- @treturn nil
 function F3X:SetDecorations(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetDecoration", Changes)
+    return self._endpoint:InvokeServer("SyncDecorate", Changes)
 end
 
 --- (deprecated) Creates meshes on the specified parts.
@@ -384,7 +384,7 @@ end
 -- @treturn nil
 function F3X:SetMeshes(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetMesh", Changes)
+    return self._endpoint:InvokeServer("SyncMesh", Changes)
 end
 
 --- F3X:CreateTextures()
@@ -418,7 +418,7 @@ end
 -- @treturn nil
 function F3X:SetTextures(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetTexture", Changes)
+    return self._endpoint:InvokeServer("SyncTexture", Changes)
 end
 
 --- F3X:SetAnchors()
@@ -460,7 +460,7 @@ end
 -- @treturn nil
 function F3X:SetCollisions(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetCollision", Changes)
+    return self._endpoint:InvokeServer("SyncCollision", Changes)
 end
 
 --- Sets the CanCollide property of single part.
@@ -484,7 +484,7 @@ end
 -- @treturn nil
 function F3X:SetMaterials(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("SetMaterial", Changes)
+    return self._endpoint:InvokeServer("SyncMaterial", Changes)
 end
 
 --- Sets the material of single part.
