@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>f3x-wrapper</title>
+    <link rel="stylesheet" href="../ldoc_new.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>f3x-wrapper</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><strong>batchEdit.lua</strong></li>
+  <li><a href="../examples/rainbow.lua.html">rainbow.lua</a></li>
+  <li><a href="../examples/spinningPart.lua.html">spinningPart.lua</a></li>
+  <li><a href="../examples/tween.lua.html">tween.lua</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/f3x-wrapper.html">f3x-wrapper</a></li>
+  <li><a href="../modules/f3x-wrapper-extended-admin-house.html">f3x-wrapper-extended-admin-house</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>batchEdit.lua</h2>
+<pre>
+<span class="keyword">local</span> F3X = <span class="global">loadstring</span>(game:<span class="function-name">HttpGet</span>(<span class="string">"https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/loader.lua"</span>,<span class="keyword">true</span>))()
+<span class="keyword">local</span> plr = game:<span class="function-name">GetService</span>(<span class="string">"Players"</span>).LocalPlayer
+<span class="keyword">local</span> char = plr.Character <span class="keyword">or</span> plr.CharacterAdded:<span class="function-name">Wait</span>()
+<span class="keyword">local</span> head = char:<span class="function-name">WaitForChild</span>(<span class="string">"Head"</span>)
+
+<span class="keyword">local</span> ascPos = head.Position + Vector3.<span class="function-name">new</span>(<span class="number">0</span>, <span class="number">5</span>, <span class="number">5</span>)
+<span class="keyword">local</span> descPos = head.Position + Vector3.<span class="function-name">new</span>(<span class="number">0</span>, <span class="number">5</span>, <span class="number">8</span>)
+<span class="keyword">local</span> shrinkingPart = F3X:<span class="function-name">CreatePart</span>(<span class="string">'Normal'</span>, CFrame.<span class="function-name">new</span>(head.Position + Vector3.<span class="function-name">new</span>(<span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>)))
+<span class="keyword">local</span> expandingPart = F3X:<span class="function-name">CreatePart</span>(<span class="string">'Normal'</span>, CFrame.<span class="function-name">new</span>(head.Position + Vector3.<span class="function-name">new</span>(<span class="number">0</span>, <span class="number">7</span>, <span class="number">0</span>)))
+<span class="keyword">local</span> ascendingPart = F3X:<span class="function-name">CreatePart</span>(<span class="string">'Normal'</span>, CFrame.<span class="function-name">new</span>(ascPos))
+<span class="keyword">local</span> descendingPart = F3X:<span class="function-name">CreatePart</span>(<span class="string">'Normal'</span>, CFrame.<span class="function-name">new</span>(descPos))
+
+F3X:<span class="function-name">SetColors</span>({
+    {[<span class="string">"Part"</span>] = shrinkingPart, [<span class="string">"Color"</span>] = Color3.<span class="function-name">new</span>(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)},
+    {[<span class="string">"Part"</span>] = expandingPart, [<span class="string">"Color"</span>] = Color3.<span class="function-name">new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>)},
+    {[<span class="string">"Part"</span>] = ascendingPart, [<span class="string">"Color"</span>] = Color3.<span class="function-name">new</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>)},
+    {[<span class="string">"Part"</span>] = descendingPart, [<span class="string">"Color"</span>] = Color3.<span class="function-name">new</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)}
+})
+
+F3X:<span class="function-name">SetNames</span>({shrinkingPart, expandingPart, ascendingPart, descendingPart}, {<span class="string">'Shrink'</span>, <span class="string">'Expand'</span>, <span class="string">'Ascend'</span>, <span class="string">'Descend'</span>})
+
+<span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">100</span> <span class="keyword">do</span>
+    <span class="global">coroutine</span>.<span class="function-name">wrap</span>(<span class="keyword">function</span>()
+        <span class="comment">-- You can also move parts using F3X:ResizeParts().
+</span>        F3X:<span class="function-name">ResizeParts</span>({
+            <span class="comment">-- Changing size without changing CFrame
+</span>            {[<span class="string">"Part"</span>] = shrinkingPart, [<span class="string">"Size"</span>] = Vector3.<span class="function-name">new</span>(<span class="number">4</span>, <span class="number">1</span> - i/<span class="number">100</span>, <span class="number">2</span>), [<span class="string">"CFrame"</span>] = shrinkingPart.CFrame},
+            {[<span class="string">"Part"</span>] = expandingPart, [<span class="string">"Size"</span>] = Vector3.<span class="function-name">new</span>(<span class="number">4</span>, i/<span class="number">100</span>, <span class="number">2</span>), [<span class="string">"CFrame"</span>] = shrinkingPart.CFrame},
+
+            <span class="comment">-- Changing CFrame without changing size
+</span>            {[<span class="string">"Part"</span>] = ascendingPart, [<span class="string">"Size"</span>] = ascendingPart.Size, [<span class="string">"CFrame"</span>] = CFrame.<span class="function-name">new</span>(ascPos + Vector3.<span class="function-name">new</span>(<span class="number">0</span>, i/<span class="number">10</span>, <span class="number">0</span>))},
+            {[<span class="string">"Part"</span>] = descendingPart, [<span class="string">"Size"</span>] = descendingPart.Size, [<span class="string">"CFrame"</span>] = CFrame.<span class="function-name">new</span>(ascPos - Vector3.<span class="function-name">new</span>(<span class="number">0</span>, i/<span class="number">10</span>, <span class="number">0</span>))}
+        })
+    <span class="keyword">end</span>)()
+    task.<span class="function-name">wait</span>()
+<span class="keyword">end</span></pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2024-07-21 01:31:52 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
