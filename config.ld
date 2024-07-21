@@ -6,4 +6,5 @@ backtick_references = false
 file = {"main.lua","extended/admin-house.lua"}
 dir = "public"
 style = "!new"
+examples = "examples"
 -- vim: ft=lua

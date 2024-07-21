@@ -107,7 +107,7 @@ end
 
 --- Sets the name of the specified items.
 -- @tparam {Instance,...} Items Items to rename
--- @tparam string Name New name
+-- @tparam string|{string,...} Name New name(s)
 -- @treturn nil
 function F3X:SetNames(Items, Name)
     EnsureInitialized(self)
@@ -348,7 +348,7 @@ end
 
 --- (deprecated) Creates meshes on the specified parts.
 -- @warning This function is deprecated. Use CreateMeshesOnParts instead.
--- @tparam {{["Part"]:BasePart},...} Objects Parts to create meshes on
+-- @tparam {{["Part"]:BasePart},...} Changes Parts to create meshes on
 -- @treturn {SpecialMesh,...} Created meshes
 -- @see CreateMeshesOnParts
 function F3X:CreateMeshes(Changes)
