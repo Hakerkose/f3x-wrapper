@@ -8,6 +8,12 @@
 
 **f3x-wrapper** is a Lua module designed to interface with the F3X building tools in Roblox. It provides a set of functions to manipulate parts, groups, lights, decorations, meshes, textures, and more within the game environment.<br><br>
 
+## Getting started
+
+```lua
+local F3X = loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/loader.lua",true))()
+```
+
 For more detailed documentation, please visit [this link](https://bqmb3.github.io/f3x-wrapper).
 
 ## License
