@@ -1,4 +1,4 @@
---- f3x-wrapper: An Unofficial F3X Sync API Wrapper
+--- The main module of f3x-wrapper
 -- @module f3x-wrapper
 -- @author bqmb3
 -- @license MIT
@@ -63,7 +63,7 @@ end
 --- Creates a new part of the specified type at the given position.
 -- @tparam 'Normal'|'Truss'|'Wedge'|'Corner'|'Cylinder'|'Ball'|'Seat'|'VehicleSeat'|'Spawn' PartType Type of the part
 -- @tparam CFrame Position Position of the part
--- @tparam[opt=workspace] Instance Parent Parent instance
+-- @tparam[opt=workspace] Instance Parent Parent instance, defaults to workspace
 -- @treturn BasePart Created part
 function F3X:CreatePart(PartType, Position, Parent)
     EnsureInitialized(self)
@@ -74,13 +74,13 @@ function F3X:CreatePart(PartType, Position, Parent)
 end
 
 --- Creates a group (Model or Folder) containing the specified items.
--- @tparam string Type Type of the group
--- @tparam Instance Parent Parent instance
--- @tparam {Instance,...} Items Items to group
+-- @tparam "Model"|"Folder" Type Type of the group
+-- @tparam[opt=workspace] Instance Parent Parent instance, defaults to workspace
+-- @tparam[opt={}] {Instance,...} Items Items to group, defaults to empty table
 -- @treturn Model|Folder Created group
 function F3X:CreateGroup(Type, Parent, Items)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("CreateGroup", Type, Parent, Items)
+    return self._endpoint:InvokeServer("CreateGroup", Type, Parent or workspace, Items or {})
 end
 
 --- Ungroups the specified groups.
