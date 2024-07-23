@@ -11,6 +11,7 @@
 ## Getting started
 
 ```lua
+-- _G.F3X_wrapper_module = nil -- uncomment this if you are having issues
 local F3X = loadstring(game:HttpGet("https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/loader.lua",true))()
 ```
 

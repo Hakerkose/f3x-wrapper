@@ -95,6 +95,4 @@ function F3X:RemoveFromWhitelist(userId)
    return game:GetService('ReplicatedStorage').Network.BuildLocking:InvokeServer({"REMOVEWHITELIST", userId})
 end
 
-_G.F3X_wrapper_module = F3X
-
 return F3X

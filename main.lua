@@ -4,11 +4,6 @@
 -- @license MIT
 -- @copyright bqmb3 2024
 
-if _G.F3X_wrapper_module then
-    warn('f3x-wrapper already loaded, using preloaded module')
-    return _G.F3X_wrapper_module
-end
-
 local F3X = {}
 
 local plr = game:GetService("Players").LocalPlayer
@@ -590,7 +585,5 @@ function F3X:GetSelectedParts()
     EnsureInitialized(self)
     return require(self._core).Selection.Parts
 end
-
-_G.F3X_wrapper_module = F3X
 
 return F3X
