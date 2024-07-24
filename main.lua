@@ -394,7 +394,7 @@ end
 -- @treturn {Texture|Decal,...} Created textures
 function F3X:CreateTextures(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("CreateTexture", Changes)
+    return self._endpoint:InvokeServer("CreateTextures", Changes)
 end
 
 --- F3X:SetTextures()
