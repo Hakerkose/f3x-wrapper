@@ -348,7 +348,7 @@ end
 -- @see CreateMeshesOnParts
 function F3X:CreateMeshes(Changes)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("CreateMesh", Changes)
+    return self._endpoint:InvokeServer("CreateMeshes", Changes)
 end
 
 --- Creates meshes on the specified parts.
@@ -360,7 +360,7 @@ function F3X:CreateMeshesOnParts(Objects)
     for _, v in ipairs(Objects) do
         table.insert(Changes, {["Part"] = v})
     end
-    return self._endpoint:InvokeServer("CreateMesh", Changes)
+    return self._endpoint:InvokeServer("CreateMeshes", Changes)
 end
 
 --- F3X:SetMeshes()
