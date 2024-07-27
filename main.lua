@@ -75,7 +75,7 @@ end
 
 --- Creates a group (Model or Folder) containing the specified items.
 -- @tparam "Model"|"Folder" Type Type of the group
--- @tparam[opt=workspace] Instance Parent Parent instance, defaults to workspace
+-- @tparam Instance Parent Parent instance
 -- @tparam {Instance,...} Items Items to group
 -- @treturn Model|Folder Created group
 function F3X:CreateGroup(Type, Parent, Items)
