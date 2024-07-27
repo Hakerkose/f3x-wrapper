@@ -5,13 +5,21 @@
 -- @copyright bqmb3 2024
 -- @see f3x-wrapper
 
-
+local plr = game:GetService('Players').LocalPlayer
+function getF3XbyCommand()
+   game.Players:Chat('/e :f3x')
+   return plr.Backpack:WaitForChild('Folder', 3)
+end
 _G.F3X__init_func = function()
-   if not _G.F3X__init_debounce then
-      _G.F3X__init_debounce = true
-      game.Players:Chat('/e :f3x')
+   if _G.F3X__init_debounce then return end
+   local folder
+   for i = 1, math.huge do
+      if i > 1 then
+         warn("Failed to get F3X. Attempt #"..tostring(i))
+      end
+      folder = plr.Backpack:FindFirstChild("Folder") or getF3XbyCommand()
+      if folder then break end
    end
-   local folder = game:GetService('Players').LocalPlayer.Backpack:WaitForChild('Folder')
    _G.F3X__init_debounce = false
    return folder
 end
