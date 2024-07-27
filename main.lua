@@ -76,11 +76,11 @@ end
 --- Creates a group (Model or Folder) containing the specified items.
 -- @tparam "Model"|"Folder" Type Type of the group
 -- @tparam[opt=workspace] Instance Parent Parent instance, defaults to workspace
--- @tparam[opt={}] {Instance,...} Items Items to group, defaults to empty table
+-- @tparam {Instance,...} Items Items to group
 -- @treturn Model|Folder Created group
 function F3X:CreateGroup(Type, Parent, Items)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("CreateGroup", Type, Parent or workspace, Items or {})
+    return self._endpoint:InvokeServer("CreateGroup", Type, Parent or workspace, Items)
 end
 
 --- Ungroups the specified groups.
