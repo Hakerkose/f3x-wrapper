@@ -512,7 +512,7 @@ end
 -- @treturn {Weld,...} Created welds
 function F3X:CreateWelds(Parts, TargetPart)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("CreateWeld", Parts, TargetPart)
+    return self._endpoint:InvokeServer("CreateWelds", Parts, TargetPart)
 end
 
 --- Removes the specified welds.
@@ -520,7 +520,7 @@ end
 -- @treturn number Number of removed welds
 function F3X:RemoveWelds(Welds)
     EnsureInitialized(self)
-    return self._endpoint:InvokeServer("RemoveWeld", Welds)
+    return self._endpoint:InvokeServer("RemoveWelds", Welds)
 end
 
 --- Undoes the removal of the specified welds.
