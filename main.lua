@@ -15,7 +15,7 @@ function F3X.new(init)
 end
 
 function EnsureInitialized(self)
-    if self._endpoint and self._endpoint:IsDescendantOf(game) then return end
+    if self._endpoint and self._endpoint:FindFirstAncestorOfClass("DataModel") then return end
     local init = _G.F3X__init_func or function()
         game.Players:Chat(':f3x')
         return plr.Backpack:WaitForChild('Building Tools', 1)
