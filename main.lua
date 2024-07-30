@@ -35,6 +35,8 @@ function EnsureInitialized(self)
     self._endpoint = ServerEndpoint
 end
 
+_G.F3X__EnsureInitialized = EnsureInitialized
+
 --- Recolors the handle of a part.
 -- @tparam BrickColor NewColor New color for the handle
 -- @treturn nil

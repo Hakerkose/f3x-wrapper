@@ -7,7 +7,7 @@
 
 local plr = game:GetService('Players').LocalPlayer
 function getF3XbyCommand()
-   game.Players:Chat('/e :f3x')
+   game:GetService('Players'):Chat('/e :f3x')
    return plr.Backpack:WaitForChild('Folder', 3)
 end
 _G.F3X__init_func = function()

@@ -3,9 +3,13 @@ if _G.F3X_wrapper_module then
 end
 
 local moduleUrl = "https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/main.lua"
+local extended = {
+    [333164326] = "https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/extended/admin-house.lua",
+    [9381162676] = "https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/extended/faab.lua"
+}
 
-if game.PlaceId == 333164326 then
-    moduleUrl = "https://raw.githubusercontent.com/bqmb3/f3x-wrapper/main/extended/admin-house.lua"
+if extended[game.PlaceId] then
+    moduleUrl = extended[game.PlaceId]
 end
 
 _G.F3X_wrapper_module = loadstring(game:HttpGet(moduleUrl, true))()
