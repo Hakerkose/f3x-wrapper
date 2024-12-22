@@ -4,6 +4,9 @@
 -- @license MIT
 -- @copyright bqmb3 2024
 
+-- what the fuck bro bqmb3 you didnt fix some of the parts
+-- im here to fork it
+
 local F3X = {}
 
 local plr = game:GetService("Players").LocalPlayer
@@ -569,7 +572,7 @@ end
 -- @treturn nil
 function F3X:SetMouseLockEnabled(Enabled)
     EnsureInitialized(self)
-    return self.endpoint:InvokeServer("SetMouseLockEnabled", Enabled)
+    return self._endpoint:InvokeServer("SetMouseLockEnabled", Enabled)
 end
 
 --- Sets the locked state of the specified items.
@@ -578,7 +581,7 @@ end
 -- @treturn nil
 function F3X:SetLocked(Items, Locked)
     EnsureInitialized(self)
-    return self.endpoint:InvokeServer("SetLocked", Items, Locked)
+    return self._endpoint:InvokeServer("SetLocked", Items, Locked)
 end
 
 --- Gets the currently selected parts.
