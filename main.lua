@@ -569,7 +569,7 @@ end
 -- @treturn nil
 function F3X:SetMouseLockEnabled(Enabled)
     EnsureInitialized(self)
-    return self.endpoint:InvokeServer("SetMouseLockEnabled", Enabled)
+    return self._endpoint:InvokeServer("SetMouseLockEnabled", Enabled)
 end
 
 --- Sets the locked state of the specified items.
@@ -578,7 +578,7 @@ end
 -- @treturn nil
 function F3X:SetLocked(Items, Locked)
     EnsureInitialized(self)
-    return self.endpoint:InvokeServer("SetLocked", Items, Locked)
+    return self._endpoint:InvokeServer("SetLocked", Items, Locked)
 end
 
 --- Gets the currently selected parts.
